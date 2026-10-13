@@ -9,14 +9,14 @@ import mermaid from "astro-mermaid";
 import { remarkHeadingId } from "remark-custom-heading-id";
 
 export default defineConfig({
-  site: "https://userstyles.catppuccin.com",
+  site: "https://berrimi.github.io/omarchyUserStyles",
   markdown: {
     remarkPlugins: [remarkHeadingId],
   },
   integrations: [
     mermaid(),
     starlight({
-      title: "Catppuccin Userstyles",
+      title: "Omarchy Userstyles",
       favicon: "/favicon.png",
       logo: {
         dark: "/public/pepperjack-dark.png",
@@ -26,11 +26,11 @@ export default defineConfig({
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/catppuccin/userstyles",
+          href: "https://github.com/berrimi/omarchyUserStyles",
         },
       ],
       editLink: {
-        baseUrl: "https://github.com/catppuccin/userstyles/edit/main/docs",
+        baseUrl: "https://github.com/berrimi/omarchyUserStyles/edit/main/docs",
       },
       expressiveCode: {
         themes: ["catppuccin-mocha", "catppuccin-latte"],

@@ -73,14 +73,14 @@
     --color-inverted-fixed: @base;
 
     --color-progressive: @accent;
-    --color-progressive--hover: lighten(@accent, 5%);
-    --color-progressive--active: darken(@accent, 10%);
-    --color-progressive--focus: darken(@accent, 10%);
+    --color-progressive--hover: color-mix(in srgb, @accent, white 5%);
+    --color-progressive--active: color-mix(in srgb, @accent, black 10%);
+    --color-progressive--focus: color-mix(in srgb, @accent, black 10%);
 
     --color-destructive: @red;
     --color-destructive--hover: @maroon;
-    --color-destructive--active: darken(@red, 4%);
-    --color-destructive--visited: spin(@red, 15);
+    --color-destructive--active: color-mix(in srgb, @red, black 4%);
+    --color-destructive--visited: hsl(from @red calc(h + 15) s l);
 
     --color-visited: @lavender;
 
@@ -100,12 +100,12 @@
     --color-disabled: @overlay2;
 
     --box-shadow-color-base: @overlay0;
-    --box-shadow-color-progressive--active: fade(@accent, 10%);
-    --box-shadow-color-progressive--focus: fade(@accent, 50%);
-    --box-shadow-color-progressive-selected: fade(@accent, 60%);
-    --box-shadow-color-progressive-selected--hover: fade(@accent, 70%);
-    --box-shadow-color-progressive-selected--active: fade(@accent, 80%);
-    --box-shadow-color-destructive--focus: fade(@accent, 50%);
+    --box-shadow-color-progressive--active: color-mix(in srgb, @accent 10%, transparent);
+    --box-shadow-color-progressive--focus: color-mix(in srgb, @accent 50%, transparent);
+    --box-shadow-color-progressive-selected: color-mix(in srgb, @accent 60%, transparent);
+    --box-shadow-color-progressive-selected--hover: color-mix(in srgb, @accent 70%, transparent);
+    --box-shadow-color-progressive-selected--active: color-mix(in srgb, @accent 80%, transparent);
+    --box-shadow-color-destructive--focus: color-mix(in srgb, @accent 50%, transparent);
     --box-shadow-color-inverted: @base;
     --box-shadow-color-alpha-base: rgba(0, 0, 0, 0.87);
     --box-shadow-color-transparent: transparent;
@@ -113,13 +113,13 @@
     // Background colors for static elements (for page layout, sections, etc.) from here on.
     --background-color-base: @base;
     // The same as background-color-base in light mode, but does not change in dark mode. Use this for things that should be white in both modes.
-    --background-color-base-fixed: @catppuccin[@latte][@base];
+    --background-color-base-fixed: var(--omarchy-color7);
     --background-color-neutral: @surface0;
-    --background-color-neutral-subtle: mix(@surface0, @base, 50%);
+    --background-color-neutral-subtle: color-mix(in srgb, @surface0 50%, @base);
     --background-color-interactive: @surface0;
     --background-color-interactive--hover: @surface1;
     --background-color-interactive--active: @surface2;
-    --background-color-interactive-subtle: mix(@surface0, @base, 50%);
+    --background-color-interactive-subtle: color-mix(in srgb, @surface0 50%, @base);
     --background-color-interactive-subtle--hover: @surface0;
     --background-color-interactive-subtle--active: @surface1;
     --background-color-disabled: @surface1;
@@ -127,66 +127,45 @@
     --background-color-inverted: @text;
 
     --background-color-progressive: @accent;
-    --background-color-progressive--hover: darken(@accent, 5%);
-    --background-color-progressive--active: darken(@accent, 10%);
-    --background-color-progressive--focus: lighten(@accent, 10%);
-    --background-color-progressive-subtle: mix(@accent, @base, 30%);
-    --background-color-progressive-subtle--hover: lighten(
-      mix(@accent, @base, 30%),
-      5%
-    );
-    --background-color-progressive-subtle--active: lighten(
-      mix(@accent, @base, 30%),
-      10%
-    );
+    --background-color-progressive--hover: color-mix(in srgb, @accent, black 5%);
+    --background-color-progressive--active: color-mix(in srgb, @accent, black 10%);
+    --background-color-progressive--focus: color-mix(in srgb, @accent, white 10%);
+    --background-color-progressive-subtle: color-mix(in srgb, @accent 30%, @base);
+    --background-color-progressive-subtle--hover: color-mix(in srgb, color-mix(in srgb, @accent 30%, @base), white 5%);
+    --background-color-progressive-subtle--active: color-mix(in srgb, color-mix(in srgb, @accent 30%, @base), white 10%);
 
     --background-color-destructive: @red;
-    --background-color-destructive--hover: darken(@red, 5%);
-    --background-color-destructive--active: darken(@red, 10%);
-    --background-color-destructive--focus: lighten(@accent, 10%);
-    --background-color-destructive-subtle: mix(@red, @base, 30%);
-    --background-color-destructive-subtle--hover: lighten(
-      mix(@red, @base, 30%),
-      5%
-    );
-    --background-color-destructive-subtle--active: lighten(
-      mix(@red, @base, 30%),
-      10%
-    );
+    --background-color-destructive--hover: color-mix(in srgb, @red, black 5%);
+    --background-color-destructive--active: color-mix(in srgb, @red, black 10%);
+    --background-color-destructive--focus: color-mix(in srgb, @accent, white 10%);
+    --background-color-destructive-subtle: color-mix(in srgb, @red 30%, @base);
+    --background-color-destructive-subtle--hover: color-mix(in srgb, color-mix(in srgb, @red 30%, @base), white 5%);
+    --background-color-destructive-subtle--active: color-mix(in srgb, color-mix(in srgb, @red 30%, @base), white 10%);
 
     --background-color-error: @red;
-    --background-color-error--hover: darken(@red, 5%);
-    --background-color-error--active: darken(@red, 10%);
-    --background-color-error-subtle: mix(@red, @base, 30%);
-    --background-color-error-subtle--hover: lighten(mix(@red, @base, 30%), 5%);
-    --background-color-error-subtle--active: lighten(
-      mix(@red, @base, 30%),
-      10%
-    );
+    --background-color-error--hover: color-mix(in srgb, @red, black 5%);
+    --background-color-error--active: color-mix(in srgb, @red, black 10%);
+    --background-color-error-subtle: color-mix(in srgb, @red 30%, @base);
+    --background-color-error-subtle--hover: color-mix(in srgb, color-mix(in srgb, @red 30%, @base), white 5%);
+    --background-color-error-subtle--active: color-mix(in srgb, color-mix(in srgb, @red 30%, @base), white 10%);
 
-    --background-color-warning-subtle: mix(@yellow, @base, 30%);
-    --background-color-success-subtle: mix(@green, @base, 30%);
-    --background-color-notice-subtle: mix(@text, @base, 30%);
+    --background-color-warning-subtle: color-mix(in srgb, @yellow 30%, @base);
+    --background-color-success-subtle: color-mix(in srgb, @green 30%, @base);
+    --background-color-notice-subtle: color-mix(in srgb, @text 30%, @base);
 
-    --background-color-content-added: mix(@blue, @base, 30%);
-    --background-color-content-removed: mix(@yellow, @base, 30%);
+    --background-color-content-added: color-mix(in srgb, @blue 30%, @base);
+    --background-color-content-removed: color-mix(in srgb, @yellow 30%, @base);
 
-    --background-color-backdrop-light: fade(@base, 65%);
-    --background-color-backdrop-dark: fade(@text, 65%);
+    --background-color-backdrop-light: color-mix(in srgb, @base 65%, transparent);
+    --background-color-backdrop-dark: color-mix(in srgb, @text 65%, transparent);
 
-    --background-color-button-quiet--hover: fade(@accent, 2.7%);
-    --background-color-button-quiet--active: fade(@accent, 8.2%);
+    --background-color-button-quiet--hover: color-mix(in srgb, @accent 2.7%, transparent);
+    --background-color-button-quiet--active: color-mix(in srgb, @accent 8.2%, transparent);
 
     --background-color-input-binary--checked: @accent;
 
-    --background-color-tab-list-item-framed--hover: fade(
-      @catppuccin[@latte][@base],
-      30%
-    );
-    --background-color-tab-list-item-framed--active: fade(
-      @catppuccin[@latte][@base],
-      65%
-    );
+    --background-color-tab-list-item-framed--hover: color-mix(in srgb, var(--omarchy-color7) 30%, transparent);
+    --background-color-tab-list-item-framed--active: color-mix(in srgb, var(--omarchy-color7) 65%, transparent);
 
     --border-base: 1px solid var(--border-color-base);
     --border-subtle: 1px solid var(--border-color-subtle);
@@ -201,7 +180,7 @@
     --border-color-disabled: @overlay0;
     --border-color-inverted: @base;
     // The same as color-inverted in light mode, but does not change in dark mode. Use this for things that should be white in both modes.
-    --border-color-inverted-fixed: @catppuccin[@latte][@base];
+    --border-color-inverted-fixed: var(--omarchy-color7);
 
     --border-color-progressive: var(--color-progressive);
     --border-color-progressive--hover: var(--color-progressive--hover);
@@ -295,7 +274,7 @@
 
     /* View history */
     .flaggedrevs-color-1 {
-      background-color: fade(@blue, 10%);
+      background-color: color-mix(in srgb, @blue 10%, transparent);
     }
 
     /* Language search and settings */

@@ -1,0 +1,226 @@
+/* ==UserStyle==
+@name Cinny Omarchy
+@namespace github.com/berrimi/omarchyUserStyles/styles/cinny
+@homepageURL https://github.com/berrimi/omarchyUserStyles/tree/main/styles/cinny
+@version 2026.08.16
+@updateURL https://github.com/berrimi/omarchyUserStyles/raw/main/styles/cinny/omarchy.user.less
+@supportURL https://github.com/berrimi/omarchyUserStyles/issues?q=is%3Aopen+is%3Aissue+label%3Acinny
+@description Omarchy theme for Cinny
+@author berrimi
+@license MIT
+
+@preprocessor less
+@var select accentColor "Accent" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
+==/UserStyle== */
+
+@import "https://berrimi.github.io/omarchyUserStyles/lib/std/v1.less";
+
+@-moz-document domain("cinny.in") {
+  code .token {
+    opacity: 1 !important;
+  }
+
+  :root,
+  .silver-theme {
+    #omarchy("omarchy");
+  }
+
+  .dark-theme,
+  .butter-theme {
+    #omarchy("omarchy");
+  }
+
+  #omarchy("omarchy") {
+    #lib.palette();
+    #lib.defaults();
+    #lib.css-variables();
+
+    /* Legacy user colors */
+    --mx-uc-1: @blue;
+    --mx-uc-2: @pink;
+    --mx-uc-3: @teal;
+    --mx-uc-4: @red;
+    --mx-uc-5: @peach;
+    --mx-uc-6: @sky;
+    --mx-uc-7: @mauve;
+    --mx-uc-8: @green;
+
+    body.oq6d071w,
+    &._15q3ngn0,
+    &._15q3ngn1,
+    &._15q3ngn2 {
+      --oq6d070: @mantle;
+      --oq6d071: @base;
+      --oq6d072: @surface0;
+      --oq6d073: @surface1;
+      --oq6d074: @text;
+      --oq6d075: @base;
+      --oq6d076: @surface0;
+      --oq6d077: @surface1;
+      --oq6d078: @surface2;
+      --oq6d079: @text;
+      --oq6d07a: @mantle;
+      --oq6d07b: @base;
+      --oq6d07c: @surface0;
+      --oq6d07d: @surface1;
+      --oq6d07e: @text;
+
+      --oq6d07f: @subtext0;
+      --oq6d07g: @overlay2;
+      --oq6d07h: @overlay1;
+      --oq6d07i: @overlay0;
+
+      --oq6d07j: @base;
+
+      --oq6d07k: color-mix(in srgb, @accent 50%, transparent);
+      --oq6d07l: color-mix(in srgb, @accent 40%, transparent);
+      --oq6d07m: color-mix(in srgb, @accent 30%, transparent);
+      --oq6d07n: color-mix(in srgb, @accent 20%, transparent);
+
+      --oq6d07o: @text;
+      --oq6d07p: @subtext1;
+      --oq6d07q: @subtext0;
+      --oq6d07r: @overlay2;
+      --oq6d07s: @overlay1;
+
+      --oq6d07t: @mantle;
+      --oq6d07u: @surface0;
+      --oq6d07v: @surface1;
+      --oq6d07w: @surface2;
+      --oq6d07x: @overlay0;
+      --oq6d07y: @text;
+
+      --oq6d07z: color-mix(in srgb, @green 90%, transparent);
+      --oq6d0710: color-mix(in srgb, @green 95%, transparent);
+      --oq6d0711: color-mix(in srgb, @green 97.5%, transparent);
+      --oq6d0712: @green;
+      --oq6d0713: @surface0;
+      --oq6d0714: color-mix(in srgb, @surface0 97.5%, transparent);
+      --oq6d0715: color-mix(in srgb, @surface0 95%, transparent);
+      --oq6d0716: color-mix(in srgb, @surface0 90%, transparent);
+      --oq6d0717: color-mix(in srgb, @surface0 80%, transparent);
+
+      --oq6d0718: @green;
+
+      --oq6d0719: color-mix(in srgb, @peach 90%, transparent);
+      --oq6d071a: color-mix(in srgb, @peach 95%, transparent);
+      --oq6d071b: color-mix(in srgb, @peach 97.5%, transparent);
+      --oq6d071c: @peach;
+      --oq6d071d: color-mix(in srgb, @surface0 97.5%, transparent);
+      --oq6d071e: color-mix(in srgb, @surface0 95%, transparent);
+      --oq6d071f: color-mix(in srgb, @surface0 90%, transparent);
+      --oq6d071g: color-mix(in srgb, @surface0 80%, transparent);
+      --oq6d071h: color-mix(in srgb, @surface0 70%, transparent);
+
+      --oq6d071i: color-mix(in srgb, @maroon 90%, transparent);
+      --oq6d071j: color-mix(in srgb, @maroon 95%, transparent);
+      --oq6d071k: color-mix(in srgb, @maroon 97.5%, transparent);
+      --oq6d071l: @maroon;
+      --oq6d071m: color-mix(in srgb, @surface0 97.5%, transparent);
+      --oq6d071n: color-mix(in srgb, @surface0 95%, transparent);
+      --oq6d071o: color-mix(in srgb, @surface0 90%, transparent);
+      --oq6d071p: color-mix(in srgb, @surface0 80%, transparent);
+      --oq6d071q: color-mix(in srgb, @surface0 70%, transparent);
+      --oq6d071r: color-mix(in srgb, @surface0 60%, transparent);
+      --oq6d071s: color-mix(in srgb, @maroon 90%, transparent);
+
+      --oq6d071t: color-mix(in srgb, @text 50%, transparent);
+      --oq6d071u: @crust;
+      --oq6d071v: color-mix(in srgb, @crust 60%, transparent);
+    }
+
+    /* Search results */
+    ._1m2qi7rq {
+      background-color: @accent;
+      color: @base;
+    }
+
+    /* Footer */
+    .footer {
+      .text-s1,
+      .text-h2,
+      a {
+        color: @text;
+      }
+
+      .footer__creator,
+      .footer__menu-container .text-b3 {
+        color: @subtext0;
+      }
+
+      background-color: @base;
+    }
+
+    /* I don't think these actually do anything anymore, but they are
+    still defined in the app. They _might_ be removed in a future release. */
+
+    /* Backgrounds */
+    --bg-surface: @base;
+    --bg-surface-transparent: color-mix(in srgb, @base 0%, transparent);
+    --bg-surface-low: @mantle;
+    --bg-surface-low-transparent: color-mix(in srgb, @mantle 0%, transparent);
+    --bg-surface-extra-low: @crust;
+    --bg-surface-extra-low-transparent: color-mix(in srgb, @crust 0%, transparent);
+    --bg-surface-border: color-mix(in srgb, @crust 20%, transparent);
+    --bg-surface-hover: @surface0;
+    --bg-surface-active: @surface1;
+    --bg-overlay: color-mix(in srgb, @crust 60%, transparent);
+    --bg-overlay-low: color-mix(in srgb, @crust 80%, transparent);
+    --bg-primary: @accent;
+    --bg-primary-hover: color-mix(in srgb, @accent 80%, transparent);
+    --bg-primary-active: color-mix(in srgb, @accent 70%, transparent);
+    --bg-primary-border: color-mix(in srgb, @accent 38%, transparent);
+    --bg-tooltip: @surface0;
+    --bg-badge: @lavender;
+    --bg-positive: @green;
+    --bg-positive-hover: color-mix(in srgb, @green 8%, transparent);
+    --bg-positive-active: color-mix(in srgb, @green 15%, transparent);
+    --bg-positive-border: color-mix(in srgb, @green 40%, transparent);
+    --bg-caution: @peach;
+    --bg-caution-hover: color-mix(in srgb, @peach 8%, transparent);
+    --bg-caution-active: color-mix(in srgb, @peach 15%, transparent);
+    --bg-caution-border: color-mix(in srgb, @peach 40%, transparent);
+    --bg-danger: @maroon;
+    --bg-danger-hover: color-mix(in srgb, @maroon 5%, transparent);
+    --bg-danger-active: color-mix(in srgb, @maroon 10%, transparent);
+    --bg-danger-border: color-mix(in srgb, @maroon 20%, transparent);
+    --bg-ping: color-mix(in srgb, @green 40%, transparent);
+    --bg-ping-hover: color-mix(in srgb, @green 50%, transparent);
+
+    /* Texts */
+    --tc-surface-high: @text;
+    --tc-surface-normal: @text;
+    --tc-surface-normal-low: @subtext1;
+    --tc-surface-low: @subtext0;
+    --tc-primary-high: @crust;
+    --tc-primary-normal: @text;
+    --tc-primary-low: @subtext1;
+    --tc-tooltip: @subtext0;
+    --tc-code: @mauve;
+    --tc-link: @blue;
+    --tc-badge: @crust;
+    --tc-positive-high: @green;
+    --tc-positive-normal: @green;
+    --tc-positive-low: @green;
+    --tc-caution-high: @peach;
+    --tc-caution-normal: @peach;
+    --tc-caution-low: @peach;
+    --tc-danger-high: @maroon;
+    --tc-danger-normal: @maroon;
+    --tc-danger-low: @maroon;
+
+    /* Icons */
+    --ic-surface-high: @text;
+    --ic-surface-normal: @text;
+    --ic-surface-low: @subtext1;
+    --ic-primary-high: @crust;
+    --ic-primary-normal: @crust;
+    --ic-primary-low: @crust;
+    --ic-positive-high: @green;
+    --ic-positive-normal: @maroon;
+    --ic-caution-high: @peach;
+    --ic-caution-normal: @peach;
+    --ic-danger-high: @maroon;
+    --ic-danger-normal: @maroon;
+  }
+}

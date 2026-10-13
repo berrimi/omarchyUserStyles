@@ -15,7 +15,7 @@ You should also attach some screenshots of the themed website, show it off!
 
 ## 🗒 Checklist 🗒
 
-- [ ] I have read and followed Catppuccin's [userstyle contributing guidelines](https://userstyles.catppuccin.com/contributing/).
+- [ ] I have read and followed the [userstyle contributing guidelines](https://berrimi.github.io/omarchyUserStyles/contributing/).
 
 <!-- Please let us know for reviewing purposes whether or not your pull request was created in whole or in part using AI/LLMs. -->
 
@@ -23,12 +23,12 @@ You should also attach some screenshots of the themed website, show it off!
 
 ---
 
-- [ ] I have read and followed Catppuccin's [userstyle submission guidelines](https://userstyles.catppuccin.com/contributing/creating-userstyles/).
+- [ ] I have read and followed the [userstyle submission guidelines](https://berrimi.github.io/omarchyUserStyles/contributing/creating-userstyles/).
 - [ ] I have made a new directory underneath `/styles/<name-of-website>`.
   - [ ] I have ensured that the new directory is in **lower-kebab-case**.
-  - [ ] I have named the userstyle `catppuccin.user.less` within the new directory.
-  - [ ] I have followed the [template](https://github.com/catppuccin/userstyles/blob/main/template/catppuccin.user.less) and kept the preprocessor as [LESS](https://lesscss.org/#overview).
-- [ ] I have updated the [`userstyles.yml`](https://github.com/catppuccin/userstyles/blob/main/scripts/userstyles.yml) file with information about the new userstyle.
+  - [ ] I have named the userstyle `omarchy.user.less` within the new directory.
+  - [ ] I have followed the [template](https://github.com/berrimi/omarchyUserStyles/blob/main/template/omarchy.user.less) and kept the preprocessor as [LESS](https://lesscss.org/#overview).
+- [ ] I have updated the [`userstyles.yml`](https://github.com/berrimi/omarchyUserStyles/blob/main/scripts/userstyles.yml) file with information about the new userstyle.
 
 ## 💬 Comments 💬
 

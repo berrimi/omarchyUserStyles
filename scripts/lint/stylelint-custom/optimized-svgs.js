@@ -7,7 +7,7 @@ const {
   utils: { report, ruleMessages, validateOptions },
 } = stylelint;
 
-const ruleName = "catppuccin/optimized-svgs";
+const ruleName = "omarchy/optimized-svgs";
 
 const meta = {
   fixable: true,

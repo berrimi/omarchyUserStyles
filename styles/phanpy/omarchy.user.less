@@ -1,0 +1,86 @@
+/* ==UserStyle==
+@name Phanpy Omarchy
+@namespace github.com/berrimi/omarchyUserStyles/styles/phanpy
+@homepageURL https://github.com/berrimi/omarchyUserStyles/tree/main/styles/phanpy
+@version 2026.08.16
+@updateURL https://github.com/berrimi/omarchyUserStyles/raw/main/styles/phanpy/omarchy.user.less
+@supportURL https://github.com/berrimi/omarchyUserStyles/issues?q=is%3Aopen+is%3Aissue+label%3Aphanpy
+@description Omarchy theme for Phanpy
+@author berrimi
+@license MIT
+
+@preprocessor less
+@var select accentColor "Accent" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
+==/UserStyle== */
+
+@import "https://berrimi.github.io/omarchyUserStyles/lib/std/v1.less";
+
+@-moz-document domain("phanpy.social") {
+  :root:not(:has(.is-light)) {
+    #omarchy("omarchy");
+  }
+  :root.is-light {
+    #omarchy("omarchy");
+  }
+
+  #omarchy("omarchy") {
+    #lib.palette();
+    #lib.defaults();
+
+    --text-color: @text;
+    --text-insignificant-color: @subtext0;
+    --link-color: @accent;
+    --link-text-color: @accent;
+    --link-faded-color: @accent;
+    --link-light-color: @accent;
+    --button-bg-blur-color: @accent;
+    --button-bg-color: @accent;
+    --button-text-color: @base;
+    --bg-faded-color: @base;
+    --bg-faded-blur-color: @mantle;
+    --bg-blur-color: @mantle;
+    --close-button-bg-color: @mantle;
+    --close-button-color: @subtext0;
+    --bg-color: @base;
+    --link-bg-hover-color: @mantle;
+    --divider-color: @surface0;
+    --outline-color: @surface0;
+    --outline-hover-color: @surface2;
+    --reblog-faded-color: color-mix(in srgb, @mauve 20%, transparent);
+    --reblog-color: @mauve;
+    --reply-to-faded-color: color-mix(in srgb, @yellow 20%, transparent);
+    --reply-to-text-color: @yellow;
+    --reply-to-color: @yellow;
+    --favourite-color: @red;
+    --green-color: @green;
+    --red-color: @red;
+    --comment-line-color: @surface1;
+    --media-bg-color: @base;
+    --media-fg-color: @text;
+    --media-outline-color: @text;
+
+    .szh-menu__item--disabled {
+      color: @subtext0;
+    }
+
+    .button.plain2 {
+      background-color: @mantle;
+    }
+
+    .replies-parent-link {
+      background-color: @surface0 !important;
+    }
+
+    .account-container {
+      --original-color: @blue;
+
+      .profile-field,
+      .stats,
+      .posting-stats-button {
+        background-color: @mantle;
+        -webkit-filter: none;
+        filter: none;
+      }
+    }
+  }
+}

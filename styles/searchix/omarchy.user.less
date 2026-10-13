@@ -1,0 +1,43 @@
+/* ==UserStyle==
+@name Searchix Omarchy
+@namespace github.com/berrimi/omarchyUserStyles/styles/searchix
+@homepageURL https://github.com/berrimi/omarchyUserStyles/tree/main/styles/searchix
+@version 2026.08.16
+@updateURL https://github.com/berrimi/omarchyUserStyles/raw/main/styles/searchix/omarchy.user.less
+@supportURL https://github.com/berrimi/omarchyUserStyles/issues?q=is%3Aopen+is%3Aissue+label%3Asearchix
+@description Omarchy theme for Searchix
+@author berrimi
+@license MIT
+
+@preprocessor less
+@var select accentColor "Accent" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
+==/UserStyle== */
+
+@import "https://berrimi.github.io/omarchyUserStyles/lib/std/v1.less";
+
+@-moz-document domain("searchix.ovh") {
+  :root {
+    #omarchy("omarchy");
+  }
+
+  #omarchy("omarchy") {
+    #lib.palette();
+    #lib.defaults();
+
+    --bg: @base;
+    --accent-bg: @mantle;
+    --text: @text;
+    --text-light: @subtext0;
+    --accent: @accent;
+    --accent-hover: @accent;
+    --accent-error: color-mix(in srgb, @red 20%, transparent);
+    --border: @overlay0;
+    --code: @lavender;
+    --preformatted: @text;
+    --disabled: @crust;
+
+    dialog {
+      color: var(--text);
+    }
+  }
+}

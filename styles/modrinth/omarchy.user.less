@@ -1,0 +1,198 @@
+/* ==UserStyle==
+@name Modrinth Omarchy
+@namespace github.com/berrimi/omarchyUserStyles/styles/modrinth
+@homepageURL https://github.com/berrimi/omarchyUserStyles/tree/main/styles/modrinth
+@version 2026.08.16
+@updateURL https://github.com/berrimi/omarchyUserStyles/raw/main/styles/modrinth/omarchy.user.less
+@supportURL https://github.com/berrimi/omarchyUserStyles/issues?q=is%3Aopen+is%3Aissue+label%3Amodrinth
+@description Omarchy theme for Modrinth
+@author berrimi
+@license MIT
+
+@preprocessor less
+@var select accentColor "Accent" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
+==/UserStyle== */
+
+@import "https://berrimi.github.io/omarchyUserStyles/lib/std/v1.less";
+
+@-moz-document domain("modrinth.com") {
+  .light,
+  .light-mode,
+  .light-properties,
+  html {
+    #omarchy("omarchy");
+  }
+
+  .dark,
+  .dark-mode,
+  .oled-mode,
+  :root[data-theme="dark"] {
+    #omarchy("omarchy");
+  }
+
+  #omarchy("omarchy") {
+    #lib.palette();
+    #lib.defaults();
+
+    // TODO: Use Omarchy palette colors? `fade()`-ed?
+    @shadow: #010409;
+
+    #css-variables() !important;
+
+    // homepage
+    .blob-demonstration,
+    .blob-demonstration::after {
+      background: linear-gradient(
+        0deg,
+        color-mix(in srgb, @accent 20%, transparent),
+        color-mix(in srgb, @base 10%, transparent)
+      ) !important;
+    }
+    .logo-banner path {
+      fill: @accent !important;
+    }
+    .logo-banner > svg > g > rect {
+      display: none;
+    }
+
+    [tabindex="0"]:focus-visible,
+    a:focus-visible,
+    button:focus-visible {
+      outline-color: @accent;
+    }
+
+    .BDVE3s9MFQttmbMUeYup-2 a b,
+    .BDVE3s9MFQttmbMUeYup-2 a strong {
+      color: @accent;
+    }
+
+    // dropdown icon
+    .multiselect__select::before {
+      border-color: @text transparent transparent;
+      color: @text;
+    }
+    // header button hover
+    .btn-wrapper:hover {
+      a,
+      button {
+        --tw-brightness: none !important;
+      }
+    }
+    .nuxt-loading-indicator {
+      background: @accent !important;
+    }
+
+    #css-variables() {
+      --text-color: @text;
+      --color-base: @text;
+      --color-bg: @crust;
+      --color-secondary: @subtext0;
+      --color-ad-raised: @surface2;
+      --color-ad: @surface1;
+      --color-ad-highlight: @teal;
+      --color-brand: @accent;
+      --color-brand-green: @green;
+      --color-button-bg-active: @overlay0;
+      --color-button-bg-selected: color-mix(in srgb, @accent 25%, transparent);
+      --color-button-bg-hover: @surface1;
+      --color-button-bg: @surface0;
+      --color-button-text-hover: @text;
+      --color-button-text: @subtext1;
+      --color-button-text-active: @text;
+      --color-button-text-selected: @accent;
+      --color-divider: @surface0;
+      --color-divider-dark: @surface2;
+      --color-heading: @text;
+      --color-icon: @text;
+      --color-link-active: @sapphire;
+      --color-link-hover: @sky;
+      --color-link: @blue;
+      --color-raised-bg: @base;
+      --color-blue: @sapphire;
+      --color-special-blue: @sapphire;
+      --color-orange: @peach;
+      --color-special-orange: @peach;
+      --color-purple: @mauve;
+      --color-special-purple: @mauve;
+      --color-red: @red;
+      --color-gray: @subtext0;
+      --color-special-gray: @subtext0;
+      --color-green: @green;
+      --color-text: @subtext1;
+      --color-text-dark: @text;
+      --color-text-inactive: @overlay1;
+      --color-brand-highlight: color-mix(in srgb, @accent 25%, transparent);
+      --color-brand-inverted: @shadow;
+      --color-table-alternate-row: @crust;
+      --color-table-border: @overlay0;
+      --color-contrast: @text;
+      --color-accent-contrast: @mantle;
+      --color-red-highlight: color-mix(in srgb, @red 25%, transparent);
+      --color-orange-highlight: color-mix(in srgb, @peach 25%, transparent);
+      --color-green-highlight: color-mix(in srgb, @accent 25%, transparent);
+      --color-blue-highlight: color-mix(in srgb, @blue 25%, transparent);
+      --color-purple-highlight: color-mix(in srgb, @mauve 25%, transparent);
+      --color-gray-highlight: color-mix(in srgb, @text 25%, transparent);
+      --color-red-bg: color-mix(in srgb, @red 20%, transparent);
+      --color-orange-bg: color-mix(in srgb, @peach 25%, transparent);
+      --color-green-bg: color-mix(in srgb, @accent 25%, transparent);
+      --color-blue-bg: color-mix(in srgb, @blue 25%, transparent);
+      --color-purple-bg: color-mix(in srgb, @mauve 25%, transparent);
+      --color-brand-shadow: @accent;
+      --color-warning-banner-side: @red;
+      --color-warning-banner-bg: color-mix(in srgb, @red 25%, transparent);
+      --color-warning-banner-text: @text;
+      --color-platform-fabric: @rosewater;
+      --color-platform-quilt: @mauve;
+      --color-platform-forge: @lavender;
+      --color-platform-neoforge: @peach;
+      --color-platform-liteloader: @sky;
+      --color-platform-bukkit: @peach;
+      --color-platform-bungeecord: @yellow;
+      --color-platform-folia: @green;
+      --color-platform-paper: @red;
+      --color-platform-purpur: @mauve;
+      --color-platform-spigot: @yellow;
+      --color-platform-velocity: @teal;
+      --color-platform-waterfall: @blue;
+      --color-platform-sponge: @yellow;
+      --color-platform-ornithe: @teal;
+      --color-platform-bta-babric: @green;
+      --color-platform-legacy-fabric: @lavender;
+      --color-platform-nilloader: @pink;
+      --color-button-border: color-mix(in srgb, @crust 20%, transparent);
+      --color-tooltip-bg: @surface1;
+      --color-tooltip-text: @subtext1;
+      --landing-green-label: @accent;
+      --landing-green-label-bg: color-mix(in srgb, @accent 10%, transparent);
+      --landing-blue-label: @blue;
+      --landing-color-heading: @text;
+      --landing-color-subheading: @subtext0;
+      --landing-border-color: @overlay0;
+      --landing-blue-label-bg: color-mix(in srgb, @blue 10%, transparent);
+      --landing-border-gradient: linear-gradient(
+        to bottom right,
+        @overlay0,
+        @surface2
+      );
+      --brand-gradient-strong-bg: linear-gradient(
+        270deg,
+        color-mix(in srgb, @accent 5%, transparent) 10%,
+        color-mix(in srgb, @accent 15%, transparent)
+      );
+      --brand-gradient-border: color-mix(in srgb, @accent 10%, transparent);
+
+      --surface-1: @crust;
+      --surface-1-5: color-mix(in srgb, @crust 50%, @mantle);
+      --surface-2: @mantle;
+      --surface-2-5: color-mix(in srgb, @mantle 50%, @base);
+      --surface-3: @base;
+      --surface-4: @surface0;
+      --surface-5: @surface2;
+
+      --color-text-primary: @text;
+      --color-text-default: @subtext1;
+      --color-text-tertiary: @subtext0;
+    }
+  }
+}

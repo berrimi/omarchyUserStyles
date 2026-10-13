@@ -1,0 +1,82 @@
+/* ==UserStyle==
+@name Scalar Omarchy
+@namespace github.com/berrimi/omarchyUserStyles/styles/scalar
+@homepageURL https://github.com/berrimi/omarchyUserStyles/tree/main/styles/scalar
+@version 2026.08.16
+@updateURL https://github.com/berrimi/omarchyUserStyles/raw/main/styles/scalar/omarchy.user.less
+@supportURL https://github.com/berrimi/omarchyUserStyles/issues?q=is%3Aopen+is%3Aissue+label%3Ascalar
+@description Omarchy theme for Scalar
+@author berrimi
+@license MIT
+
+@preprocessor less
+@var select accentColor "Accent" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
+==/UserStyle== */
+
+@import "https://berrimi.github.io/omarchyUserStyles/lib/std/v1.less";
+
+@-moz-document domain("scalar.com") {
+  code.hljs {
+    background: none !important;
+  }
+
+  .light-mode {
+    #omarchy("omarchy");
+  }
+
+  .dark-mode {
+    #omarchy("omarchy");
+  }
+
+  #omarchy("omarchy") {
+    #lib.palette();
+    #lib.defaults();
+    #lib.css-variables();
+
+    --scalar-color-1: @text;
+    --scalar-color-2: @subtext1;
+    --scalar-color-3: @subtext0;
+    --scalar-color-accent: @accent;
+    --scalar-background-1: @base;
+    --scalar-background-2: @surface0;
+    --scalar-background-3: @surface1;
+    --scalar-background-accent: color-mix(in srgb, @accent 12%, transparent);
+    --scalar-border-color: @surface1;
+    --scalar-color-green: @green;
+    --scalar-color-red: @red;
+    --scalar-color-yellow: @yellow;
+    --scalar-color-blue: @blue;
+    --scalar-color-orange: @peach;
+    --scalar-color-purple: @mauve;
+    --scalar-selection-1: color-mix(in srgb, @accent 30%, transparent);
+    --scalar-button-1: @accent;
+    --scalar-button-1-hover: color-mix(in srgb, @accent, black 5%);
+    --scalar-button-1-color: @base;
+
+    background-color: @base;
+
+    .sidebar {
+      --scalar-sidebar-background-1: @mantle;
+      --scalar-sidebar-item-hover-background: @surface0;
+      --scalar-sidebar-item-active-background: color-mix(in srgb, @accent 10%, transparent);
+      --scalar-sidebar-color-active: @accent;
+    }
+
+    .scalar-code-block, .t-editor__code {
+      background-color: @mantle;
+    }
+
+    .brightness-lifted {
+      filter: none; // remove elevated filter on dropdown modal backgrounds
+    }
+
+    .text-white {
+      color: @base; // danger (delete) button text
+    }
+
+    // https://scalar.com/
+    .logo {
+      filter: @text-filter;
+    }
+  }
+}

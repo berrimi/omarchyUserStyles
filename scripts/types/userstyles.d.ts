@@ -55,7 +55,7 @@ export type Category =
   | "wiki"
   | "window_manager";
 /**
- * The fill color for the icon on the Catppuccin website, which should match the color used by Simple Icons. If the icon does not exist in Simple Icons, choose the most suitable color from the branding.
+ * The fill color for the icon on the Omarchy website, which should match the color used by Simple Icons. If the icon does not exist in Simple Icons, choose the most suitable color from the branding.
  */
 export type Color =
   | "rosewater"
@@ -107,7 +107,7 @@ export interface UserstylesSchema {
   collaborators?: AllCollaborators;
 }
 /**
- * All userstyles in the Catppuccin organisation.
+ * All userstyles in the Omarchy collection.
  */
 export interface Userstyles {
   [k: string]: Userstyle;

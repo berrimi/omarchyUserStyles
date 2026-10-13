@@ -1,0 +1,55 @@
+/* ==UserStyle==
+@name Hyperpipe Omarchy
+@namespace github.com/berrimi/omarchyUserStyles/styles/hyperpipe
+@homepageURL https://github.com/berrimi/omarchyUserStyles/tree/main/styles/hyperpipe
+@version 2026.08.16
+@updateURL https://github.com/berrimi/omarchyUserStyles/raw/main/styles/hyperpipe/omarchy.user.less
+@supportURL https://github.com/berrimi/omarchyUserStyles/issues?q=is%3Aopen+is%3Aissue+label%3Ahyperpipe
+@description Omarchy theme for Hyperpipe
+@author berrimi
+@license MIT
+
+@preprocessor less
+@var select accentColor "Accent" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
+==/UserStyle== */
+
+@import "https://berrimi.github.io/omarchyUserStyles/lib/std/v1.less";
+
+@-moz-document domain("hyperpipe.surge.sh") {
+  body {
+    #omarchy("omarchy");
+  }
+
+  body[data-theme^="light"] {
+    #omarchy("omarchy");
+  }
+
+  body[data-theme^="dark"],
+  body[data-theme^="black"],
+  body[data-theme^="dracula"],
+  body[data-theme^="nord"] {
+    #omarchy("omarchy");
+  }
+
+  #omarchy("omarchy") {
+    #lib.palette();
+    #lib.defaults();
+
+    --color-foreground: @accent !important;
+    --color-background: @base !important;
+    --color-background-soft: @surface0 !important;
+    --color-background-mute: @surface1 !important;
+    --color-border: @surface0 !important;
+    --color-border-hover: @overlay0 !important;
+    --color-shadow: @crust !important;
+    --color-blur: color-mix(in srgb, @mantle 45%, transparent) !important;
+    --color-gradient: linear-gradient(
+      45deg,
+      @accent,
+      color-mix(in srgb, @accent 45%, transparent)
+    );
+    --color-scrollbar: @accent !important;
+    --color-heading: @text !important;
+    --color-text: @text !important;
+  }
+}

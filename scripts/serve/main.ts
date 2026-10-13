@@ -11,7 +11,7 @@ const args = parseArgs(Deno.args, {});
 const userstyle = args._[0]
   ?.toString()
   .match(
-    /(?<base>styles\/)?(?<userstyle>[a-z0-9_\-.]+)(?<trailing>\/)?(?<file>catppuccin\.user\.less)?/,
+    /(?<base>styles\/)?(?<userstyle>[a-z0-9_\-.]+)(?<trailing>\/)?(?<file>omarchy\.user\.less)?/,
   )?.groups?.userstyle;
 if (!userstyle) throw new Error("Invalid userstyle argument");
 
@@ -38,7 +38,7 @@ const userstylePath = path.join(
   REPO_ROOT,
   "styles",
   userstyle,
-  "catppuccin.user.less",
+  "omarchy.user.less",
 );
 
 const libPath = path.join(
@@ -72,9 +72,9 @@ let lastLibChecksum = await calculateLibChecksum();
 
 async function updateTempUserstyle() {
   let contents = await Deno.readTextFile(userstylePath);
-  /* Appends a query parameter suffix to import URLs from userstyles.catppuccin.com, containing the library modules content checksum.  */
+  /* Appends a query parameter suffix to import URLs from berrimi.github.io/omarchyUserStyles, containing the library modules content checksum.  */
   const importRegex =
-    /(@import\s+"https:\/\/userstyles\.catppuccin\.com\/lib\/[^\s]+\.less")/g;
+    /(@import\s+"https:\/\/berrimi\.github\.io\/omarchyUserStyles\/lib\/[^\s]+\.less")/g;
   contents = contents.replace(importRegex, (match) => {
     return match.replace(
       /(\.less)/,
@@ -82,9 +82,9 @@ async function updateTempUserstyle() {
     );
   });
 
-  /* Then replace the remote userstyles.catppuccin.com host with the local(host) server URL for these imports. */
+  /* Then replace the remote berrimi.github.io/omarchyUserStyles host with the local(host) server URL for these imports. */
   contents = contents.replaceAll(
-    "https://userstyles.catppuccin.com",
+    "https://berrimi.github.io/omarchyUserStyles",
     `http://localhost:${server.addr.port}`,
   );
 

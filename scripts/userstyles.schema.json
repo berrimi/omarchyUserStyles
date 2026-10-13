@@ -7,7 +7,7 @@
       "$id": "#userstyles",
       "title": "Userstyles",
       "type": "object",
-      "description": "All userstyles in the Catppuccin organisation.",
+      "description": "All userstyles in the Omarchy collection.",
       "patternProperties": {
         "[A-Za-z0-9_\\-]": {
           "$id": "#userstyles/userstyle",
@@ -122,7 +122,7 @@
     "color": {
       "$id": "#color",
       "title": "Color",
-      "description": "The fill color for the icon on the Catppuccin website, which should match the color used by Simple Icons. If the icon does not exist in Simple Icons, choose the most suitable color from the branding.",
+      "description": "The fill color for the icon on the Omarchy website, which should match the color used by Simple Icons. If the icon does not exist in Simple Icons, choose the most suitable color from the branding.",
       "type": "string",
       "enum": [
         "rosewater",

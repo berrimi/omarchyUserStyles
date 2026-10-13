@@ -10,7 +10,7 @@ sidebar:
 ## Usage
 
 ```less
-@import "https://userstyles.catppuccin.com/lib/std/v1.less";
+@import "https://berrimi.github.io/omarchyUserStyles/lib/std/v1.less";
 ```
 
 ## API
@@ -19,32 +19,25 @@ The standard library exposes a `#lib` namespace.
 
 ### `#lib.palette()`
 
-The standard library palette mixin provides Less variable definitions for hex colors and CSS filters from the palette. Call the mixin at the top of the `#catppuccin` mixin to inject the variables into the userstyle context. This is used in all userstyles.
+The standard library palette mixin provides Less variable definitions that resolve to the user's Omarchy theme variables (`var(--omarchy-*)`) at runtime, plus static CSS filter strings for recoloring icons. There is a single `omarchy` flavor. Call the mixin at the top of the `#omarchy` mixin to inject the variables into the userstyle context. This is used in all userstyles.
+
+The accent variable follows the user's `accentColor` option:
+
+```less
+@accent; // -> var(--omarchy-purple) (or whichever accent is selected)
+```
+
+Because the palette resolves at runtime, Less color functions (`fade()`, `lighten()`, `mix()`, …) cannot be used on palette variables. Use [`color-mix()`](https://developer.mozilla.org/en-US/docs/Web/CSS/color-mix) and [relative colors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Using_relative_colors) instead:
+
+```less
+color-mix(in srgb, @accent 30%, transparent);
+from @base r g b; /* channel fragment, consumed as rgb(var(--x)) */
+```
 
 ### `#lib.defaults()`
 
 The standard library defaults mixin provides a set of default styles for text selection and native/input elements. This is generally applied in all userstyles, with some exceptions.
 
-### `#lib.rgbify()`
-
-The standard library `rgbify` mixin is a utility mixin for extracting the color in `r, g, b` format from a palette variable.
-
-#### Examples
-
-```less
---my-variable-rgb: #lib.rgbify(@base) []; // -> 30, 30, 46
-```
-
-### `#lib.hslify()`
-
-The standard library `hslify` mixin is a utility mixin for extracting the color in `h, s, l` format from a palette variable.
-
-#### Examples
-
-```less
---my-variable-hsl: #lib.hslify(@base) []; // -> 240, 21.052631578947366%, 14.901960784313726%
-```
-
 ### `#lib.css-variables()`
 
-The standard library CSS variables mixin provides the palette variables in [CSS variable/custom property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) form. This is commonly used alongside [syntax highlighting imports](/contributing/guides/syntax-highlighting/).
+The standard library CSS variables mixin provides the palette variables in [CSS variable/custom property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) form (as `--omarchy-*` aliases). This is commonly used alongside [syntax highlighting imports](/contributing/guides/syntax-highlighting/).

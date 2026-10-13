@@ -934,7 +934,7 @@ userstyles:
     categories: [productivity]
     icon: tldraw
     color: text
-    note: This theme only changes how the colors appear on the tldraw canvas. Exported graphics **will not be Catppuccin-themed**.
+    note: This theme only changes how the colors appear on the tldraw canvas. Exported graphics **will not be Omarchy-themed**.
     current-maintainers: [*NekoDrone]
     past-maintainers: [*GenShibe, *uncenter]
   trinket:

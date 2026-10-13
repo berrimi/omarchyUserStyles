@@ -8,7 +8,7 @@ const {
   utils: { report, ruleMessages, validateOptions },
 } = stylelint;
 
-const ruleName = "catppuccin/no-redundant-parent-selector";
+const ruleName = "omarchy/no-redundant-parent-selector";
 
 const meta = {
   fixable: true,

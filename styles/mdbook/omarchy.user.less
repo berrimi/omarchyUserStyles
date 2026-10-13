@@ -1,0 +1,100 @@
+/* ==UserStyle==
+@name mdBook Omarchy
+@namespace github.com/berrimi/omarchyUserStyles/styles/mdbook
+@homepageURL https://github.com/berrimi/omarchyUserStyles/tree/main/styles/mdbook
+@version 2026.08.16
+@updateURL https://github.com/berrimi/omarchyUserStyles/raw/main/styles/mdbook/omarchy.user.less
+@supportURL https://github.com/berrimi/omarchyUserStyles/issues?q=is%3Aopen+is%3Aissue+label%3Amdbook
+@description Omarchy theme for mdBook
+@author berrimi
+@license MIT
+
+@preprocessor less
+@var select accentColor "Accent" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
+==/UserStyle== */
+
+@import "https://berrimi.github.io/omarchyUserStyles/lib/std/v1.less";
+
+@-moz-document domain("rust-lang.github.io"),
+  domain("doc.rust-lang.org"),
+  domain("rust-book.cs.brown.edu"),
+  domain("rustc-dev-guide.rust-lang.org"),
+  domain("forge.rust-lang.org"),
+  domain("lang-team.rust-lang.org"),
+  domain("doc.redox-os.org"),
+  url-prefix("https://lukaswirth.dev/tlborm/") {
+
+  :root {
+    #omarchy("omarchy");
+  }
+
+  #omarchy("omarchy") {
+    #lib.palette();
+    #lib.defaults();
+    #lib.css-variables();
+
+    --bg: @base;
+    --fg: @text;
+    --sidebar-bg: @mantle;
+    --sidebar-fg: @text;
+    --sidebar-non-existant: @overlay0;
+    --sidebar-active: @blue;
+    --sidebar-spacer: @overlay0;
+    --scrollbar: @overlay0;
+    --icons: @overlay0;
+    --icons-hover: @overlay2;
+    --links: @blue;
+    --inline-code-color: @text;
+    --theme-popup-bg: @mantle;
+    --theme-popup-border: @overlay0;
+    --theme-hover: @overlay0;
+    --quote-bg: @mantle;
+    --quote-border: @crust;
+    --table-border-color: @surface0;
+    --table-header-bg: color-mix(in srgb, @accent 30%, @base);
+    --table-alternate-bg: @mantle;
+    --searchbar-border-color: @surface0;
+    --searchbar-bg: @mantle;
+    --searchbar-fg: @text;
+    --searchbar-shadow-color: @crust;
+    --searchresults-header-fg: @text;
+    --searchresults-border-color: @surface2;
+    --searchresults-li-bg: @base;
+    --sidebar-header-border-color: @lavender;
+    --search-mark-bg: @peach;
+    --warning-border: @peach;
+    --copy-button-filter: @subtext0-filter;
+    --copy-button-filter-hover: @blue-filter;
+    --blockquote-note-color: @blue;
+    --blockquote-tip-color: @green;
+    --blockquote-important-color: @mauve;
+    --blockquote-warning-color: @yellow;
+    --blockquote-caution-color: @red;
+    /* https://github.com/cognitive-engineering-lab/mdbook-quiz */
+    --mdbook-incorrect: @red;
+    --mdbook-correct: @green;
+
+    code.hljs {
+      color: @text;
+      background: @mantle;
+    }
+    blockquote blockquote {
+      border-top-color: @surface2;
+      border-bottom-color: @surface2;
+    }
+    hr {
+      color: @surface2;
+    }
+    del {
+      color: @overlay2;
+    }
+    .ace_gutter {
+      color: @overlay1;
+      background: @mantle;
+    }
+    .ace_gutter-active-line.ace_gutter-cell {
+      color: @pink;
+      background: @mantle;
+    }
+  }
+}

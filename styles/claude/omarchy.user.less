@@ -1,0 +1,226 @@
+/* ==UserStyle==
+@name Claude Omarchy
+@namespace github.com/berrimi/omarchyUserStyles/styles/claude
+@homepageURL https://github.com/berrimi/omarchyUserStyles/tree/main/styles/claude
+@version 2026.08.16
+@updateURL https://github.com/berrimi/omarchyUserStyles/raw/main/styles/claude/omarchy.user.less
+@supportURL https://github.com/berrimi/omarchyUserStyles/issues?q=is%3Aopen+is%3Aissue+label%3Aclaude
+@description Omarchy theme for Claude
+@author berrimi
+@license MIT
+
+@preprocessor less
+@var select accentColor "Accent" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
+==/UserStyle== */
+
+@import "https://berrimi.github.io/omarchyUserStyles/lib/std/v1.less";
+
+@-moz-document domain("claude.ai") {
+  :root[data-color-version="v2"] {
+    &[data-mode="dark"] {
+      #omarchy("omarchy");
+    }
+    &[data-mode="light"] {
+      #omarchy("omarchy");
+    }
+  }
+
+  #omarchy("omarchy") {
+    #lib.palette();
+    #lib.defaults();
+
+    --accent-brand: from @accent h s l;
+    --accent-000: from @accent h s l;
+    --accent-100: from @accent h s l;
+    --accent-200: from color-mix(in srgb, @accent, white 5%) h s l;
+    --accent-900: from color-mix(in srgb, @accent, black 10%) h s l;
+    --accent-main-000: from @accent h s l;
+    --accent-main-100: from @accent h s l;
+    --accent-main-200: from @accent h s l;
+    --accent-main-900: from @accent h s l;
+    --accent-pro-000: from @accent h s l;
+    --accent-pro-100: from @accent h s l;
+    --accent-pro-200: from @accent h s l;
+    --accent-pro-900: from @accent h s l;
+    --accent-secondary-000: from @accent h s l;
+    --accent-secondary-100: from @accent h s l;
+    --accent-secondary-200: from @accent h s l;
+    --accent-secondary-900: from @accent h s l;
+    --bg-000: from @surface0 h s l;
+    --bg-100: from @base h s l;
+    --bg-200: from @mantle h s l;
+    --bg-300: from @surface0 h s l;
+    --bg-400: from @surface1 h s l;
+    --bg-500: from @surface2 h s l;
+    --brand-000: from @accent h s l;
+    --brand-100: from color-mix(in srgb, @accent, white 5%) h s l;
+    --brand-200: from color-mix(in srgb, @accent, white 5%) h s l;
+    --brand-900: from @crust h s l;
+    --border-000: from @base h s l;
+    --border-100: from @crust h s l;
+    --border-200: from @crust h s l;
+    --border-300: from @overlay0 h s l;
+    --border-400: from @overlay1 h s l;
+    --border-500: from @overlay2 h s l;
+    --danger-000: from @maroon h s l;
+    --danger-100: from @red h s l;
+    --danger-200: from @red h s l;
+    --danger-900: from @pink h s l;
+    --oncolor-000: from color-mix(in srgb, @mantle, black 5%) h s l;
+    --oncolor-100: from @mantle h s l;
+    --oncolor-200: from @mantle h s l;
+    --oncolor-300: from color-mix(in srgb, @mantle, white 5%) h s l;
+    --success-000: from @green h s l;
+    --success-100: from color-mix(in srgb, @green, white 5%) h s l;
+    --success-200: from color-mix(in srgb, @green, white 5%) h s l;
+    --success-900: from color-mix(in srgb, @green, white 15%) h s l;
+    --text-000: from color-mix(in srgb, @text, black 5%) h s l;
+    --text-100: from @text h s l;
+    --text-200: from @text h s l;
+    --text-300: from @subtext0 h s l;
+    --text-400: from @subtext1 h s l;
+    --text-500: from @subtext0 h s l;
+    --warning-000: from @yellow h s l;
+    --warning-100: from color-mix(in srgb, @yellow, white 5%) h s l;
+    --warning-200: from color-mix(in srgb, @yellow, white 5%) h s l;
+    --warning-900: from color-mix(in srgb, @yellow, white 15%) h s l;
+
+    /* Side bar */
+    nav.\!bg-bg-200 {
+      background: @mantle !important;
+    }
+
+    /* Code blocks */
+    .code-block__code {
+      background: @crust !important;
+
+      code {
+        /* Default color */
+        span {
+          color: @text !important;
+        }
+
+        /* Green */
+        span.token[style="color: rgb(152, 195, 121);"] {
+          color: @green !important;
+        }
+
+        /* Yellow */
+        span.token[style="color: rgb(209, 154, 102);"] {
+          color: @yellow !important;
+        }
+
+        /* Blue */
+        span.token[style="color: rgb(97, 175, 239);"] {
+          color: @blue !important;
+        }
+
+        /* Red */
+        span.token[style="color: rgb(224, 108, 117);"] {
+          color: @red !important;
+        }
+
+        /* Magenta */
+        span.token[style="color: rgb(198, 120, 221);"] {
+          color: @mauve !important;
+        }
+
+        /* Gray */
+        span.token[style="color: rgb(171, 178, 191);"] {
+          color: @overlay2 !important;
+        }
+      }
+    }
+
+    /* Inline code */
+    code.text-danger-000 {
+      color: @accent !important;
+    }
+
+    /* Tooltip */
+    div.bg-black\/80 {
+      background: @crust !important;
+    }
+    div.text-white {
+      color: @text !important;
+    }
+
+    /* Logo */
+    div.text-\[\#D97757\] {
+      color: @accent !important;
+    }
+
+    /* "New chat" plus icon */
+    div.text-always-white svg {
+      color: @base !important;
+    }
+
+    /* "Subscribe to Pro" and "Create Team Account" buttons */
+    button.bg-accent-pro-100 > span.inline-block {
+      color: @base !important;
+    }
+
+    /* Pay monthly/annually buttons */
+    button.bg-accent-secondary-900 {
+      span.text-text-000 {
+        color: @base !important;
+      }
+      span.text-text-300 {
+        color: @surface2 !important;
+      }
+      div.bg-accent-secondary-000 {
+        background: color-mix(in srgb, @accent, black 15%) !important;
+      }
+    }
+
+    /* Delete conversation button */
+    div.\!text-danger-000.\[\&\[data-highlighted\]\]\:bg-danger-900[data-highlighted] {
+      background: color-mix(in srgb, @red 20%, transparent) !important;
+    }
+
+    /* Checkbox */
+    input[type="checkbox"] + div.bg-bg-000 {
+      background: @text !important;
+    }
+
+    /* "Add writing example" button */
+    button.\!text-accent-secondary-100.bg-accent-secondary-900 {
+      color: @base !important;
+      &:hover {
+        color: @text !important;
+      }
+    }
+
+    /* "Describe your style" list */
+    button.\!bg-accent-secondary-900.text-accent-secondary-000 {
+      color: @base !important;
+    }
+
+    /* "Be as descriptive as possible..." helper text */
+    div.bg-accent-secondary-900.text-text-200 {
+      color: @base !important;
+    }
+
+    /* "Preview with an example..." pills */
+    button.hover\:bg-accent-secondary-900.hover\:text-accent-secondary-000 {
+      color: @accent !important;
+      &:hover {
+        color: @base !important;
+      }
+    }
+
+    /* "Previewing with ..." dropdown button */
+    button.\!text-accent-secondary-100.hover\:\!bg-accent-secondary-900 {
+      color: @accent !important;
+      &:hover {
+        color: @base !important;
+      }
+    }
+
+    /* White background (e.g., toggle switch thumb) */
+    .bg-white {
+      background-color: @text;
+    }
+  }
+}
+

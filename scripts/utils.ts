@@ -155,7 +155,7 @@ export function getUserstylesFiles(): string[] {
   for (const dir of Deno.readDirSync(path.join(REPO_ROOT, "styles"))) {
     if (!dir.isDirectory) continue;
     files.push(
-      path.join(REPO_ROOT, "styles", dir.name, "catppuccin.user.less"),
+      path.join(REPO_ROOT, "styles", dir.name, "omarchy.user.less"),
     );
   }
   return files;

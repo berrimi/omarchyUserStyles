@@ -42,7 +42,7 @@ const {
   utils: { report, ruleMessages, validateOptions },
 } = stylelint;
 
-const ruleName = "catppuccin/color-operations";
+const ruleName = "omarchy/color-operations";
 
 const meta = {
   fixable: true,

@@ -1,0 +1,478 @@
+/* ==UserStyle==
+@name crates.io Omarchy
+@namespace github.com/berrimi/omarchyUserStyles/styles/crates.io
+@homepageURL https://github.com/berrimi/omarchyUserStyles/tree/main/styles/crates.io
+@version 2026.10.11
+@updateURL https://github.com/berrimi/omarchyUserStyles/raw/main/styles/crates.io/omarchy.user.less
+@supportURL https://github.com/berrimi/omarchyUserStyles/issues?q=is%3Aopen+is%3Aissue+label%3Acrates.io
+@description Omarchy theme for crates.io
+@author berrimi
+@license MIT
+
+@preprocessor less
+@var select accentColor "Accent" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
+==/UserStyle== */
+
+@import "https://berrimi.github.io/omarchyUserStyles/lib/std/v1.less";
+
+@-moz-document domain("crates.io") {
+  :root[data-color-scheme="dark"] {
+    #omarchy("omarchy");
+  }
+
+  :root[data-color-scheme="light"] {
+    #omarchy("omarchy");
+  }
+
+  #omarchy("omarchy") {
+    #lib.palette();
+    #lib.defaults();
+    #lib.css-variables();
+
+    :focus-visible {
+      outline-color: @accent;
+      outline-style: solid;
+    }
+
+    @layer global {
+      --main-bg: @mantle;
+      --main-bg-dark: @base;
+      --main-color: @text;
+      --main-color-light: @subtext1;
+      --main-shadow-color: @crust;
+
+      --link-color: @accent;
+      --link-hover-color: color-mix(in srgb, @accent, white 5%);
+
+      --gray-border: @surface2;
+
+      --header-bg-color: @base;
+
+      --yellow500: @accent;
+      --yellow700: color-mix(in srgb, @accent, black 5%);
+
+      .button {
+        --text-color: @base;
+        --disabled-text-color: @surface1;
+
+        --bg-color-top: @accent;
+        --bg-color-bottom: @accent;
+        --bg-color-top-light: @accent;
+        --bg-color-bottom-light: @accent;
+        --bg-color-top-dark: color-mix(in srgb, @accent, black 5%);
+        --bg-color-bottom-dark: color-mix(in srgb, @accent, black 5%);
+      }
+
+      .button--red {
+        --bg-color-top: @maroon;
+        --bg-color-bottom: @maroon;
+        --bg-color-top-light: @maroon;
+        --bg-color-bottom-light: @maroon;
+        --bg-color-top-dark: @red;
+        --bg-color-bottom-dark: @red;
+      }
+
+      input[type="checkbox"] {
+        accent-color: @accent;
+      }
+
+      input {
+        background-color: @base;
+        color: @text;
+
+        &[aria-invalid="true"] {
+          border-color: @red;
+        }
+      }
+
+      select {
+        background-color: @base;
+        color: @text;
+      }
+    }
+
+    .tooltip {
+      background-color: @mantle;
+      color: @text;
+
+      .rt-latest {
+        color: @green;
+      }
+
+      .new {
+        color: @peach;
+      }
+    }
+
+    .dropdown ul {
+      background-color: @base;
+      border-color: @surface1;
+
+      li {
+        a:hover,
+        button:hover,
+        button.selected {
+          background-color: @surface0;
+          color: @text !important;
+        }
+
+        .icon {
+          background-color: @text;
+        }
+      }
+    }
+
+    nav {
+      .login-button {
+        color: @text;
+      }
+
+      .color-scheme-menu .icon {
+        background-color: @text;
+      }
+    }
+
+    footer {
+      h2 {
+        text-shadow: none;
+      }
+
+      ul li a {
+        color: @text;
+      }
+    }
+
+    /* Crates List */
+    .results-meta .sort-dropdown {
+      .icon {
+        background-color: @accent;
+      }
+    }
+
+    .crate-row {
+      --shadow: 0 1px 3px var(--main-shadow-color);
+      background-color: @base;
+    }
+
+    /* Crates */
+    .main {
+      // Crates - README
+      .header,
+      .docs {
+        --shadow: 0 2px 3px @base;
+        background-color: @base;
+      }
+
+      .wrapper {
+        p code,
+        li code {
+          background-color: @surface0 !important;
+        }
+        pre {
+          background-color: @mantle;
+        }
+      }
+
+      .crate-downloads {
+        .stat-icon {
+          color: @mantle;
+          background-color: @text;
+        }
+      }
+
+      // Crates - Code
+      .viewer {
+        .code {
+          background-color: @base;
+          diffs-container {
+            --diffs-fg: @text;
+            --diffs-bg: @base;
+          }
+        }
+      }
+
+      .viewer file-tree-container {
+        --trees-search-bg: @mantle;
+        --trees-search-fg: @text;
+        --trees-border-color: @mantle;
+        --trees-bg: @base;
+        --trees-fg: @subtext0;
+        --trees-selected-fg: @text;
+        --trees-fg-muted: @subtext0;
+        --trees-accent: @accent;
+      }
+
+      // Crates - Versions, Dependencies, Dependents
+      [role="list"] .row,
+      .list .row {
+        background-color: @base;
+
+        &:hover {
+          background-color: @surface0;
+        }
+
+        .description {
+          color: @subtext0;
+        }
+
+        // Versions
+        .release-track {
+          background-color: @text;
+          color: @base;
+        }
+
+        .num-link {
+          color: @subtext1;
+        }
+
+        &.latest {
+          &:hover {
+            background-color: color-mix(in srgb, @green 10%, transparent);
+          }
+
+          .release-track {
+            background-color: @green;
+            border-color: @green;
+          }
+
+          .num-link {
+            color: @green;
+          }
+        }
+
+        &.prerelease {
+          &:hover {
+            background-color: color-mix(in srgb, @peach 10%, transparent);
+          }
+
+          .release-track {
+            background-color: @peach;
+            border-color: @peach;
+          }
+
+          .num-link {
+            color: @peach;
+          }
+        }
+
+        &.yanked {
+          &:hover {
+            background-color: color-mix(in srgb, @red 10%, transparent);
+          }
+
+          .release-track {
+            background-color: @red;
+            border-color: @red;
+          }
+
+          .num-link {
+            color: @red;
+          }
+        }
+
+        .metadata {
+          color: @subtext1;
+
+          time[role="listitem"].new {
+            color: @peach;
+          }
+
+          .publisher a:hover {
+            color: @text;
+          }
+        }
+
+        // Dependencies
+        .link,
+        .range-lg {
+          color: @subtext1;
+        }
+
+        .name-and-metadata {
+          .optional-label,
+          .features-label {
+            color: @subtext0;
+          }
+        }
+
+        // Dependents
+        .top {
+          a,
+          .range,
+          .downloads {
+            color: @subtext1;
+          }
+        }
+      }
+
+      // Crate - Security
+      .advisories .row {
+        background-color: @base;
+
+        .affected-versions {
+          border-color: @peach;
+          background-color: @mantle;
+        }
+      }
+
+      .no-results {
+        background-color: @mantle;
+      }
+    }
+
+    .notification {
+      color: @base;
+
+      .notification__icon {
+        color: @base;
+      }
+
+      .notification--success {
+        background-color: @green;
+      }
+    }
+
+    /* Homepage */
+    .header-inner {
+      button.submit-button .icon {
+        background-color: @base;
+      }
+
+      .input-lg,
+      .input-sm {
+        background-color: @mantle;
+        box-shadow: 1px 2px 4px 0 var(--main-shadow-color);
+      }
+
+      &,
+      .hero-title,
+      .index-link {
+        color: @text;
+        text-shadow: none;
+      }
+    }
+
+    .hero-button .icon {
+      color: @base;
+    }
+
+    .blurb .stats {
+      .icon {
+        background-color: @subtext0;
+      }
+
+      .label {
+        color: @subtext0;
+      }
+    }
+
+    .box {
+      --shadow: 0 2px 3px @surface0;
+      background-color: @surface0;
+      color: @text;
+
+      .subtitle,
+      .icon {
+        color: @subtext1;
+      }
+
+      .version,
+      .downloads {
+        color: @subtext0;
+      }
+
+      &:hover {
+        background-color: @surface1;
+      }
+    }
+
+    /* Dashboard */
+    .page-header-content .stats .downloads .icon {
+      background-color: @accent;
+    }
+
+    .my-info {
+      .my-crate-lists {
+        .section-header,
+        .list {
+          .link {
+            background-color: @base;
+            color: @subtext1;
+          }
+
+          .icon {
+            background-color: @accent;
+          }
+        }
+      }
+
+      .my-feed {
+        .icon {
+          background-color: @accent;
+        }
+
+        .feed-row {
+          background-color: @base;
+          border-color: @mantle;
+        }
+      }
+    }
+
+    /* Account Settings */
+    .verified {
+      color: @green;
+    }
+
+    .empty-state {
+      background-color: @base;
+      border-color: @surface1;
+    }
+
+    .list .link.active:hover {
+      background-color: color-mix(in srgb, @base 60%, transparent);
+    }
+
+    .form-group {
+      .form-group-error {
+        color: @red;
+      }
+
+      .crates-scope {
+        background-color: @base;
+
+        button:hover {
+          background-color: @surface0;
+        }
+      }
+
+      .scopes-list {
+        &.invalid {
+          border-color: @red;
+        }
+
+        li {
+          background-color: @base;
+          color: @text;
+        }
+      }
+
+      .crates-unrestricted,
+      .crates-pattern-button {
+        background-color: @base;
+      }
+
+      .icon {
+        color: @subtext0;
+      }
+
+      .crates-pattern-button button:hover {
+        background-color: @surface0;
+      }
+    }
+
+    /* Owner Invites */
+    .panel {
+      background-color: @base;
+    }
+  }
+}

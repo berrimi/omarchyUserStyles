@@ -1,0 +1,295 @@
+/* ==UserStyle==
+@name docs.deno.com Omarchy
+@namespace github.com/berrimi/omarchyUserStyles/styles/docs.deno.com
+@homepageURL https://github.com/berrimi/omarchyUserStyles/tree/main/styles/docs.deno.com
+@version 2026.08.16
+@updateURL https://github.com/berrimi/omarchyUserStyles/raw/main/styles/docs.deno.com/omarchy.user.less
+@supportURL https://github.com/berrimi/omarchyUserStyles/issues?q=is%3Aopen+is%3Aissue+label%3Adocs.deno.com
+@description Omarchy theme for docs.deno.com
+@author berrimi
+@license MIT
+
+@preprocessor less
+@var select accentColor "Accent" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
+==/UserStyle== */
+
+@import "https://berrimi.github.io/omarchyUserStyles/lib/std/v1.less";
+
+@-moz-document domain("docs.deno.com") {
+
+  :root.dark {
+    #omarchy("omarchy");
+  }
+  :root.light {
+    #omarchy("omarchy");
+  }
+
+  #omarchy("omarchy") {
+    #lib.palette();
+    #lib.defaults();
+    #lib.css-variables();
+
+    --primary: from @accent h s l;
+    --background-primary: from @base h s l;
+    --background-secondary: from @mantle h s l;
+    --background-tertiary: from @crust h s l;
+    --foreground-primary: from @text h s l;
+    --foreground-secondary: from @subtext1 h s l;
+    --foreground-tertiary: from @overlay0 h s l;
+    --foreground-quaternary: from @surface0 h s l;
+    --runtime-background: 124deg, 100%, 3%;
+    --runtime-foreground: 184deg, 100%, 90%;
+    --note: from @blue h s l;
+    --info: from @teal h s l;
+    --caution: from @yellow h s l;
+    --tip: from @green h s l;
+
+    .banner-runtime {
+      background-color: color-mix(in srgb, @accent 10%, transparent);
+      color: @text;
+      border-color: @accent;
+    }
+    .banner-deploy {
+      background-color: color-mix(in srgb, @sky 10%, transparent);
+      color: @text;
+      border-color: @sky;
+    }
+
+    .runtime-link {
+      color: @accent;
+      text-decoration-color: @accent;
+
+      &:hover {
+        color: color-mix(in srgb, @accent, black 5%);
+        text-decoration-color: color-mix(in srgb, @accent, black 5%);
+      }
+    }
+    .deploy-link {
+      color: @sky;
+      text-decoration-color: @sky;
+
+      &:hover {
+        color: @sapphire;
+        text-decoration-color: @sapphire;
+      }
+    }
+    .help-link {
+      color: @mauve;
+      text-decoration-color: @mauve;
+
+      &:hover {
+        color: color-mix(in srgb, @mauve, black 5%);
+        text-decoration-color: color-mix(in srgb, @mauve, black 5%);
+      }
+    }
+
+    .heading-runtime {
+      text-decoration-color: @accent;
+    }
+    .heading-deploy {
+      text-decoration-color: @sky;
+    }
+    .heading-purple {
+      text-decoration-color: @mauve;
+    }
+
+    .runtime-cta {
+      background-color: @accent;
+      border-color: @accent;
+
+      &:hover {
+        background-color: color-mix(in srgb, @accent, black 5%);
+      }
+    }
+    .jsr-cta {
+      background-color: @yellow;
+      border-color: @yellow;
+      color: @crust;
+
+      &:hover {
+        background-color: color-mix(in srgb, @yellow, black 5%);
+      }
+    }
+    .deploy-cta {
+      background-color: @sky;
+      border-color: @sky;
+      color: @crust;
+
+      &:hover {
+        background-color: @sapphire;
+      }
+    }
+
+    &,
+    [data-color-mode] {
+      --color-fg-default: @text;
+      --color-fg-muted: @subtext1;
+      --color-canvas-default: @base;
+      --color-canvas-subtle: @mantle;
+      --color-border-default: @surface2;
+      --color-border-muted: @surface0;
+      --color-accent-fg: @accent;
+      --color-accent-emphasis: color-mix(in srgb, @accent, black 5%);
+      --color-danger-fg: @red;
+
+      --color-prettylights-syntax-markup-deleted-bg: color-mix(in srgb, @red 20%, transparent);
+      --color-prettylights-syntax-markup-inserted-bg: color-mix(in srgb, @green 20%, transparent);
+    }
+
+    // Logo
+    .fill-black {
+      fill: @text;
+    }
+
+    &.light {
+      .theme-toggle {
+        @svg: escape(
+          '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="@{text}"><path d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586"/></svg>'
+        );
+        background-image: url("data:image/svg+xml,@{svg}");
+      }
+    }
+    &.dark {
+      .theme-toggle {
+        @svg: escape(
+          '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill="@{text}" d="M10 2a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1m4 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0m-.464 4.95.707.707a1 1 0 0 0 1.414-1.414l-.707-.707a1 1 0 0 0-1.414 1.414m2.12-10.607a1 1 0 0 1 0 1.414l-.706.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0zM17 11a1 1 0 1 0 0-2h-1a1 1 0 1 0 0 2zm-7 4a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1M5.05 6.464A1 1 0 1 0 6.465 5.05l-.708-.707a1 1 0 0 0-1.414 1.414zm1.414 8.486-.707.707a1 1 0 0 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 1.414M4 11a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2z"/></svg>'
+        );
+        background-image: url("data:image/svg+xml,@{svg}");
+      }
+    }
+
+    .markdownBlockTitle {
+      background-color: @surface0;
+      border-color: @overlay0;
+      color: @subtext1;
+    }
+    .check-icon [stroke="green"] {
+      stroke: @green !important;
+    }
+    .markdown-body .admonition {
+      &.note {
+        background-color: color-mix(in srgb, @blue 5%, transparent);
+        .title::before {
+          @svg: escape(
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="@{blue}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4"/></svg>'
+          );
+          background-image: url("data:image/svg+xml,@{svg}");
+        }
+      }
+      &.tip {
+        background-color: color-mix(in srgb, @green 5%, transparent);
+        .title::before {
+          @svg: escape(
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="@{green}" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6 6 0 0 0 1.5-.189m-1.5.189a6 6 0 0 1-1.5-.189m3.75 7.478a12.1 12.1 0 0 1-4.5 0m3.75 2.383a14.4 14.4 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>'
+          );
+          background-image: url("data:image/svg+xml,@{svg}");
+        }
+      }
+      &.caution {
+        background-color: color-mix(in srgb, @yellow 5%, transparent);
+
+        .title::before {
+          @svg: escape(
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="@{yellow}"><path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5zM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75m0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5" clip-rule="evenodd"/></svg>'
+          );
+          background-image: url("data:image/svg+xml,@{svg}");
+        }
+      }
+      &.info {
+        background-color: color-mix(in srgb, @teal 5%, transparent);
+
+        .title::before {
+          @svg: escape(
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="@{teal}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4"/></svg>'
+          );
+          background-image: url("data:image/svg+xml,@{svg}");
+        }
+      }
+    }
+
+    // "Did you find what you needed?"
+    .bg-blue-50 {
+      background-color: color-mix(in srgb, @blue 20%, transparent);
+    }
+    .border-blue-100 {
+      border-color: color-mix(in srgb, @blue 30%, transparent);
+    }
+
+    // Breadcrumbs
+    .crumb-link::after {
+      @svg: escape(
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" transform="rotate(90)"><path fill="@{overlay1}" d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>'
+      );
+      background-image: url("data:image/svg+xml,@{svg}");
+    }
+
+    // Toggle switches (tutorial filters)
+    .slider {
+      background-color: @overlay2;
+    }
+    .filter:checked + .slider {
+      background-color: @accent;
+    }
+    .slider::before {
+      background-color: @surface0;
+    }
+
+    // Download and install tabbed component
+    .deno-tabs > div.deno-tabs-content > div,
+    .deno-tabs > ul.deno-tabs-buttons > li > button[data-active="true"] {
+      background-color: @surface1;
+      color: @text;
+      border-color: @overlay0;
+    }
+    .deno-tabs > ul.deno-tabs-buttons > li > button {
+      background-color: @surface0;
+      color: @subtext0;
+    }
+    .markdown-body .deno-tabs pre {
+      background-color: @mantle;
+      border-color: @overlay0;
+    }
+
+    /* API reference */
+    .ddoc {
+      #ddoc(@token, @color) {
+        .text-@{token} {
+          color: @color;
+        }
+        .bg-@{token}\/15 {
+          background-color: color-mix(in srgb, @color 15%, transparent);
+        }
+      }
+
+      #ddoc(
+        Namespace,
+        @yellow,
+      );
+      #ddoc(
+        Interface,
+        @sapphire,
+      );
+      #ddoc(
+        Enum,
+        @teal,
+      );
+      #ddoc(
+        Class,
+        @mauve,
+      );
+      #ddoc(
+        Function,
+        @blue,
+      );
+      #ddoc(
+        Variable,
+        @lavender,
+      );
+      #ddoc(
+        TypeAlias,
+        @pink,
+      );
+    }
+  }
+}
+

@@ -10,9 +10,9 @@ export default {
   ],
   customSyntax: "postcss-less",
   rules: {
-    "catppuccin/optimized-svgs": true,
-    "catppuccin/color-operations": true,
-    "catppuccin/no-redundant-parent-selector": true,
+    "omarchy/optimized-svgs": true,
+    "omarchy/color-operations": true,
+    "omarchy/no-redundant-parent-selector": true,
 
     "selector-class-pattern": null,
     "custom-property-pattern": null,

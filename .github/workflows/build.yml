@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    if: github.repository == 'catppuccin/userstyles'
+    if: github.repository == 'berrimi/omarchyUserStyles'
     runs-on: ubuntu-latest
     permissions:
       # Give the default GITHUB_TOKEN write permission to commit and push the

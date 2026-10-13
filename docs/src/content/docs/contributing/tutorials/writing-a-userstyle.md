@@ -10,7 +10,7 @@ sidebar:
 - [Stylus](https://github.com/openstyles/stylus) ([Firefox](https://addons.mozilla.org/en-GB/firefox/addon/styl-us/) / [Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) extension).
 - A website to theme!
 
-Assuming you have completed steps 1-4 of [Creating Userstyles](/contributing/creating-userstyles/), you should have a new `catppuccin.user.less` file under the `styles/<name-of-website>/` directory. Follow along in that `catppuccin.user.less` file as we write an example userstyle for [example.org](http://example.org/).
+Assuming you have completed steps 1-4 of [Creating Userstyles](/contributing/creating-userstyles/), you should have a new `omarchy.user.less` file under the `styles/<name-of-website>/` directory. Follow along in that `omarchy.user.less` file as we write an example userstyle for [example.org](http://example.org/).
 
 ## Usercss Metadata
 
@@ -18,24 +18,22 @@ Start by filling out the "metadata block" at the very top of the template. Repla
 
 ```less
 /* ==UserStyle==
-@name example.org Catppuccin
-@namespace github.com/catppuccin/userstyles/styles/example.org
-@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/example.org
+@name example.org Omarchy
+@namespace github.com/berrimi/omarchyUserStyles/styles/example.org
+@homepageURL https://github.com/berrimi/omarchyUserStyles/tree/main/styles/example.org
 @version 2000.01.01
-@updateURL https://github.com/catppuccin/userstyles/raw/main/styles/example.org/catppuccin.user.less
-@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Aexample.org
-@description Soothing pastel theme for example.org
-@author Catppuccin
+@updateURL https://github.com/berrimi/omarchyUserStyles/raw/main/styles/example.org/omarchy.user.less
+@supportURL https://github.com/berrimi/omarchyUserStyles/issues?q=is%3Aopen+is%3Aissue+label%3Aexample.org
+@description Omarchy theme for example.org
+@author berrimi
 @license MIT
 
 @preprocessor less
-@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
-@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
-@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire*", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+@var select accentColor "Accent" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
 ==/UserStyle== */
 ```
 
-The rest of the metadata block details the preprocessor and the options of the userstyle. This won't need to be changed. For more information, see ["Usercss Metadata" - Stylus Wiki](https://github.com/openstyles/stylus/wiki/Writing-UserCSS#usercss-metadata).
+The rest of the metadata block details the preprocessor and the accent option of the userstyle. This won't need to be changed. For more information, see ["Usercss Metadata" - Stylus Wiki](https://github.com/openstyles/stylus/wiki/Writing-UserCSS#usercss-metadata).
 
 ## `@-moz-document`
 
@@ -54,28 +52,18 @@ To tell Stylus which website(s) to apply this userstyle on, replace `<website-do
 
 ## Applying the theme
 
-This section of the template is about applying the user's light/dark flavors. Read the comments for this section in the template thoroughly and decide which of the two options works best for your port. `example.org` doesn't have a light/dark mode toggle, so we'll apply it based on the user's preferences.
+This section of the template applies the single Omarchy theme. Every color resolves to a `var(--omarchy-*)` at runtime and follows the user's Omarchy theme, so there is just one call:
 
 ```less
-:root {
-  @media (prefers-color-scheme: light) {
-    #catppuccin(@lightFlavor);
-  }
-  @media (prefers-color-scheme: dark) {
-    #catppuccin(@darkFlavor);
-  }
-}
+#omarchy("omarchy");
 ```
 
-> [!TIP]
-> If `example.org` _did_ use a toggle for changing the theme, we suggest using inspect element to try to observe what changes occur when the toggle is adjusted. Typically websites will have a class or attribute on the root `<html>` element. Some examples from our userstyles include `[theme="dark"]`, `.dark`, `.theme-dark`, etc.
-
-## The `#catppuccin` mixin
+## The `#omarchy` mixin
 
 > [!TIP]
 > For more on how Less mixins work, see ["Mixins" - lesscss.org](https://lesscss.org/features/#mixins-feature) and ["A Comprehensive Introduction to Less: Mixins" - SitePoint](https://www.sitepoint.com/a-comprehensive-introduction-to-less-mixins/).
 
-We'll refer to this next section of the template as the "`#catppuccin` mixin". The first part contains a series of mixin calls to include the Catppuccin palette and style defaults from the standard library:
+We'll refer to this next section of the template as the "`#omarchy` mixin". The first part contains a series of mixin calls to include the Omarchy palette and style defaults from the standard library:
 
 ```less
 #lib.palette();
@@ -85,7 +73,7 @@ We'll refer to this next section of the template as the "`#catppuccin` mixin". T
 Following that, you will write the CSS rules for your port. Here is what it looks like for our `example.org` port:
 
 ```less
-#catppuccin(@flavor) {
+#omarchy("omarchy") {
   #lib.palette();
   #lib.defaults();
 
@@ -113,33 +101,24 @@ Combining all of the previous steps, we have a working userstyle!
 
 ```less
 /* ==UserStyle==
-@name example.org Catppuccin
-@namespace github.com/catppuccin/userstyles/styles/example.org
-@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/example.org
+@name example.org Omarchy
+@namespace github.com/berrimi/omarchyUserStyles/styles/example.org
+@homepageURL https://github.com/berrimi/omarchyUserStyles/tree/main/styles/example.org
 @version 2000.01.01
-@updateURL https://github.com/catppuccin/userstyles/raw/main/styles/example.org/catppuccin.user.less
-@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Aexample.org
-@description Soothing pastel theme for example.org
-@author Catppuccin
+@updateURL https://github.com/berrimi/omarchyUserStyles/raw/main/styles/example.org/omarchy.user.less
+@supportURL https://github.com/berrimi/omarchyUserStyles/issues?q=is%3Aopen+is%3Aissue+label%3Aexample.org
+@description Omarchy theme for example.org
+@author berrimi
 @license MIT
 
 @preprocessor less
-@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
-@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
-@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire*", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+@var select accentColor "Accent" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
 ==/UserStyle== */
 
 @-moz-document domain("example.org") {
-  :root {
-    @media (prefers-color-scheme: light) {
-      #catppuccin(@lightFlavor);
-    }
-    @media (prefers-color-scheme: dark) {
-      #catppuccin(@darkFlavor);
-    }
-  }
+  #omarchy("omarchy");
 
-  #catppuccin(@flavor) {
+  #omarchy("omarchy") {
     #lib.palette();
     #lib.defaults();
 
@@ -160,8 +139,8 @@ Combining all of the previous steps, we have a working userstyle!
 }
 ```
 
-| Original                                                                                     | Themed                                                                                                                                                                                                                           |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![Screenshot of the default example.com page.](../../../../assets/example.org-original.webp) | ![Combined screenshots of the example.com page, with the page seen using the Catppuccin palette. Images for flavors Latte, Frappé, Macchiato and Mocha are displayed left to right.](../../../../assets/example.org-themed.webp) |
+| Original                                                                                     | Themed                                                                                                                                                                                              |
+| -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![Screenshot of the default example.com page.](../../../../assets/example.org-original.webp) | ![Combined screenshots of the example.com page, with the page seen using the Omarchy theme.](../../../../assets/example.org-themed.webp) |
 
 Complete the rest of the steps in [Creating Userstyles](/contributing/creating-userstyles/), and then submit your PR!

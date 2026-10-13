@@ -1,0 +1,131 @@
+/* ==UserStyle==
+@name Snapchat Web Omarchy
+@namespace github.com/berrimi/omarchyUserStyles/styles/snapchat-web
+@homepageURL https://github.com/berrimi/omarchyUserStyles/tree/main/styles/snapchat-web
+@version 2026.08.16
+@updateURL https://github.com/berrimi/omarchyUserStyles/raw/main/styles/snapchat-web/omarchy.user.less
+@supportURL https://github.com/berrimi/omarchyUserStyles/issues?q=is%3Aopen+is%3Aissue+label%3Asnapchat-web
+@description Omarchy theme for Snapchat Web
+@author berrimi
+@license MIT
+
+@preprocessor less
+@var select accentColor "Accent" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
+==/UserStyle== */
+
+@import "https://berrimi.github.io/omarchyUserStyles/lib/std/v1.less";
+
+@-moz-document url-prefix("https://www.snapchat.com/web") {
+  :root[theme="dark"] {
+    #omarchy("omarchy");
+  }
+  :root[theme="light"] {
+    #omarchy("omarchy");
+  }
+
+  #omarchy("omarchy") {
+    #lib.palette();
+    #lib.defaults();
+
+    /* Snapchat applies the variables (overrides?) to specific elements so we need to apply to every element (with high specificity) to override those. */
+    &,
+    body > main#root * {
+      --sigMain: @base;
+      --sigSurface: @mantle;
+      --sigSurfaceRGB: from @mantle r g b;
+      --sigAboveSurface: @crust;
+      --sigSurfaceDown: @base;
+      --sigSubscreen: @crust;
+      --sigTextField: @crust;
+      --sigDivider: @surface0;
+      --sigDividerLight: @surface0;
+      --sigColorBackgroundBorder: @surface0;
+      --sigBackgroundPrimary: @base;
+      --sigBackgroundSecondary: @mantle;
+      --sigBackgroundSecondaryHover: color-mix(in srgb, @mantle, black 5%);
+      --sigBackgroundTertiary: @crust;
+      --sigBackgroundMessageHover: @surface1;
+      --sigBackgroundMessageSaved: @surface0;
+      --sigBackgroundMessageSavedHover: @surface2;
+      --sigOverlay: color-mix(in srgb, @surface1 40%, transparent);
+      --sigOverlayHover: color-mix(in srgb, @surface1 35%, transparent);
+      --sigBrandSecondary: @accent;
+      --sigObject: rgba(255, 255, 255, 0.05);
+
+      --sigTextPrimary: @text;
+      --sigButtonOnPrimary: @crust;
+      --sigTextSecondary: @subtext0;
+      --sigButtonOnSecondary: @subtext0;
+      --sigTextTertiary: @subtext1;
+      --sigButtonOnTertiary: @subtext1;
+      --sigTextNegative: @red;
+      --sigButtonOnSuccess: @base;
+      --sigButtonOnError: @base;
+      --sigButtonOnNegative: @base;
+      --sigButtonOnChatSurfaceCalling: @base;
+      --sigTextPlayer: @crust;
+      --sigButtonGreyHover: color-mix(in srgb, @surface0, black 5%);
+      --sigButtonGreyActive: color-mix(in srgb, @surface0, black 8%);
+
+      --sigButtonPrimary: @accent;
+      --sigButtonPrimaryHover: color-mix(in srgb, @accent, black 5%);
+      --sigButtonPrimaryActive: color-mix(in srgb, @accent, black 8%);
+      --sigButtonSecondary: @surface0;
+      --sigButtonSecondaryHover: @surface1;
+      --sigButtonSecondaryActive: @surface2;
+      --sigButtonNegative: @red;
+      --sigButtonError: @red;
+      --sigButtonErrorHover: color-mix(in srgb, @red, black 5%);
+      --sigButtonSuccess: @green;
+      --sigButtonSuccessHover: color-mix(in srgb, @green, black 5%);
+      --sigIconCalling: @green;
+      --sigIconCallingHover: color-mix(in srgb, @green, black 5%);
+      --sigChatSurfaceCalling: @green;
+      --sigChatSurfaceCallingDisabled: color-mix(in srgb, @green, black 20%);
+      --sigChatSurfaceCallingHover: color-mix(in srgb, @green, black 5%);
+
+      --sigChat: @blue;
+      --sigChatIcon: @blue;
+      --sigSnapWithoutSound: @red;
+      --sigSnapWithSound: @mauve;
+    }
+
+    // new chat button
+    button[title="New Chat"],
+    // checkbox to choose camera
+    [id*="downshift-"] a,
+    // checkbox in new chat popup
+    [aria-label="Unselect chosen user"] {
+      path[fill="#fff"] {
+        fill: @crust;
+      }
+      // replaces blue fill
+      path[fill="#51B7FF"] {
+        fill: @accent;
+      }
+    }
+
+    // new group button
+    form > div > div > div[role="searchbox"] button {
+      color: @crust;
+      path {
+        fill: @crust;
+      }
+    }
+
+    // story reply text
+    li button[type="button"].replyText {
+      background-color: rgba(30, 30, 30, 0.8);
+    }
+
+    // buttons when in call
+    [data-projection-id] button {
+      --sigColorAlwaysWhite: @surface0;
+    }
+
+    // replay button on stories
+    img[role="presentation"][src^="blob:"] + div > svg > path[fill="#fff"] {
+      fill: @text;
+    }
+  }
+}

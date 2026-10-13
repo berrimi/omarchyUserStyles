@@ -1,6 +1,6 @@
 ## 🗒 Checklist 🗒
 
-- [ ] I have read and followed Catppuccin's [userstyle contributing guidelines](https://userstyles.catppuccin.com/contributing/).
+- [ ] I have read and followed the [userstyle contributing guidelines](https://berrimi.github.io/omarchyUserStyles/contributing/).
 
 <!-- Please let us know for reviewing purposes whether or not your pull request was created in whole or in part using AI/LLMs. -->
 

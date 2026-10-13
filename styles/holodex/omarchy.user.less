@@ -1,0 +1,227 @@
+/* ==UserStyle==
+@name Holodex Omarchy
+@namespace github.com/berrimi/omarchyUserStyles/styles/holodex
+@homepageURL https://github.com/berrimi/omarchyUserStyles/tree/main/styles/holodex
+@version 2026.08.16
+@updateURL https://github.com/berrimi/omarchyUserStyles/raw/main/styles/holodex/omarchy.user.less
+@supportURL https://github.com/berrimi/omarchyUserStyles/issues?q=is%3Aopen+is%3Aissue+label%3Aholodex
+@description Omarchy theme for Holodex
+@author berrimi
+@license MIT
+
+@preprocessor less
+@var select accentColor "Accent" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
+==/UserStyle== */
+
+@import "https://berrimi.github.io/omarchyUserStyles/lib/std/v1.less";
+
+@-moz-document domain("holodex.net") {
+  :root:has(.theme--dark) {
+    #omarchy("omarchy");
+  }
+
+  :root:has(.theme--light) {
+    #omarchy("omarchy");
+  }
+
+  #omarchy("omarchy") {
+    #lib.palette();
+    #lib.defaults();
+
+    --v-anchor-base: @accent;
+    --v-primary-base: @accent;
+    --v-primary-lighten1: color-mix(in srgb, @accent, white 4%);
+    --v-primary-lighten2: color-mix(in srgb, @accent, white 8%);
+    --v-primary-lighten3: color-mix(in srgb, @accent, white 9%);
+    --v-primary-lighten4: color-mix(in srgb, @accent, white 18%);
+    --v-primary-lighten5: color-mix(in srgb, @accent, white 19%);
+    --v-primary-darken1: color-mix(in srgb, @accent, black 14%);
+    --v-primary-darken2: color-mix(in srgb, @accent, black 31%);
+    --v-primary-darken3: color-mix(in srgb, @accent, black 35%);
+    --v-primary-darken4: color-mix(in srgb, @accent, black 43%);
+
+    --v-accent-base: @accent;
+    --v-accent-lighten1: color-mix(in srgb, @accent, white 4%);
+    --v-accent-lighten2: color-mix(in srgb, @accent, white 8%);
+    --v-accent-lighten3: color-mix(in srgb, @accent, white 9%);
+    --v-accent-lighten4: color-mix(in srgb, @accent, white 18%);
+    --v-accent-lighten5: color-mix(in srgb, @accent, white 19%);
+    --v-accent-darken1: color-mix(in srgb, @accent, black 14%);
+    --v-accent-darken2: color-mix(in srgb, @accent, black 31%);
+    --v-accent-darken3: color-mix(in srgb, @accent, black 35%);
+    --v-accent-darken4: color-mix(in srgb, @accent, black 43%);
+
+    --v-secondary-base: @accent;
+    --v-secondary-lighten1: color-mix(in srgb, @accent, white 4%);
+    --v-secondary-lighten2: color-mix(in srgb, @accent, white 8%);
+    --v-secondary-lighten3: color-mix(in srgb, @accent, white 9%);
+    --v-secondary-lighten4: color-mix(in srgb, @accent, white 18%);
+    --v-secondary-lighten5: color-mix(in srgb, @accent, white 19%);
+    --v-secondary-darken1: color-mix(in srgb, @accent, black 14%);
+    --v-secondary-darken2: color-mix(in srgb, @accent, black 31%);
+    --v-secondary-darken3: color-mix(in srgb, @accent, black 35%);
+    --v-secondary-darken4: color-mix(in srgb, @accent, black 43%);
+
+    --v-error-base: @red;
+    --v-error-lighten1: color-mix(in srgb, @red, white 4%);
+    --v-error-lighten2: color-mix(in srgb, @red, white 8%);
+    --v-error-lighten3: color-mix(in srgb, @red, white 9%);
+    --v-error-lighten4: color-mix(in srgb, @red, white 18%);
+    --v-error-lighten5: color-mix(in srgb, @red, white 19%);
+    --v-error-darken1: color-mix(in srgb, @red, black 14%);
+    --v-error-darken2: color-mix(in srgb, @red, black 31%);
+    --v-error-darken3: color-mix(in srgb, @red, black 35%);
+    --v-error-darken4: color-mix(in srgb, @red, black 43%);
+
+    --v-info-base: @blue;
+    --v-info-lighten1: color-mix(in srgb, @blue, white 4%);
+    --v-info-lighten2: color-mix(in srgb, @blue, white 8%);
+    --v-info-lighten3: color-mix(in srgb, @blue, white 9%);
+    --v-info-lighten4: color-mix(in srgb, @blue, white 18%);
+    --v-info-lighten5: color-mix(in srgb, @blue, white 19%);
+    --v-info-darken1: color-mix(in srgb, @blue, black 14%);
+    --v-info-darken2: color-mix(in srgb, @blue, black 31%);
+    --v-info-darken3: color-mix(in srgb, @blue, black 35%);
+    --v-info-darken4: color-mix(in srgb, @blue, black 43%);
+
+    --v-success-base: @green;
+    --v-success-lighten1: color-mix(in srgb, @green, white 4%);
+    --v-success-lighten2: color-mix(in srgb, @green, white 8%);
+    --v-success-lighten3: color-mix(in srgb, @green, white 9%);
+    --v-success-lighten4: color-mix(in srgb, @green, white 18%);
+    --v-success-lighten5: color-mix(in srgb, @green, white 19%);
+    --v-success-darken1: color-mix(in srgb, @green, black 14%);
+    --v-success-darken2: color-mix(in srgb, @green, black 31%);
+    --v-success-darken3: color-mix(in srgb, @green, black 35%);
+    --v-success-darken4: color-mix(in srgb, @green, black 43%);
+
+    --v-warning-base: @yellow;
+    --v-warning-lighten1: color-mix(in srgb, @yellow, white 4%);
+    --v-warning-lighten2: color-mix(in srgb, @yellow, white 8%);
+    --v-warning-lighten3: color-mix(in srgb, @yellow, white 9%);
+    --v-warning-lighten4: color-mix(in srgb, @yellow, white 18%);
+    --v-warning-lighten5: color-mix(in srgb, @yellow, white 19%);
+    --v-warning-darken1: color-mix(in srgb, @yellow, black 14%);
+    --v-warning-darken2: color-mix(in srgb, @yellow, black 31%);
+    --v-warning-darken3: color-mix(in srgb, @yellow, black 35%);
+    --v-warning-darken4: color-mix(in srgb, @yellow, black 43%);
+
+    --v-background-base: @base;
+    --v-background-lighten1: color-mix(in srgb, @base, white 4%);
+    --v-background-lighten2: color-mix(in srgb, @base, white 8%);
+    --v-background-lighten3: color-mix(in srgb, @base, white 9%);
+    --v-background-lighten4: color-mix(in srgb, @base, white 18%);
+    --v-background-lighten5: color-mix(in srgb, @base, white 19%);
+    --v-background-darken1: color-mix(in srgb, @base, black 14%);
+    --v-background-darken2: color-mix(in srgb, @base, black 31%);
+    --v-background-darken3: color-mix(in srgb, @base, black 35%);
+    --v-background-darken4: color-mix(in srgb, @base, black 43%);
+
+    div.v-application {
+      background: @base !important;
+      color: @text;
+    }
+
+    header#top-bar,
+    header.v-toolbar,
+    div.v-navigation-drawer__content,
+    div#bottom-bar,
+    div.v-main__wrap > div,
+    div.v-select__selections,
+    div.v-slide-group__wrapper,
+    div.v-bottom-navigation,
+    div.v-select__slot,
+    div.v-input__slot,
+    div.v-overlay__scrim {
+      background: @base !important;
+    }
+    div.v-sheet {
+      background: @base;
+      border-color: @base;
+    }
+
+    .v-btn.v-btn--has-bg:not(.nav-btn) {
+      background-color: @surface0 !important;
+    }
+
+    .v-list,
+    .v-list-item,
+    .v-card,
+    .v-sheet,
+    .v-select__selections,
+    .v-label,
+    .text--secondary,
+    .v-input__slot input {
+      color: @text !important;
+      path:not([fill*="iid-1"]) {
+        fill: @text;
+      }
+    }
+
+    .v-messages,
+    .v-list-item__subtitle,
+    .v-tab:not(.v-tab--active) {
+      color: @subtext0 !important;
+    }
+
+    svg.logo path {
+      fill: color-mix(in srgb, @accent, black 2%) !important;
+
+      &:last-child {
+        fill: color-mix(in srgb, @blue, black 8%) !important;
+      }
+    }
+
+    .v-chip {
+      background: @blue;
+    }
+
+    .primary--text,
+    .name-vtuber {
+      color: @accent !important;
+    }
+
+    .text-live {
+      color: @red;
+    }
+
+    .stream-count-chip {
+      color: @crust !important;
+    }
+
+    .nav-btn.v-btn--active {
+      color: @accent !important;
+    }
+
+    div.v-sheet.v-alert {
+      background: none !important;
+      color: @yellow !important;
+
+      .v-icon path {
+        fill: @yellow !important;
+      }
+    }
+
+    hr {
+      border-color: @base;
+    }
+
+    // Snack
+    div.v-snack {
+      color: @text;
+
+      div.v-sheet {
+        background: @surface0 !important;
+      }
+
+      button.v-btn--text {
+        color: @text !important;
+      }
+
+      button.v-btn--is-elevated.v-btn--has-bg {
+        background: @accent !important;
+        color: @base;
+      }
+    }
+  }
+}
