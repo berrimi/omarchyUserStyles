@@ -3,21 +3,24 @@
 </h3>
 
 <p align="center">
-	<a href="https://github.com/berrimi/omarchyUserStyles/stargazers"><img src="https://img.shields.io/github/stars/berrimi/omarchyUserStyles?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
-  <a href="https://github.com/berrimi/omarchyUserStyles/blob/main/styles"><img src="https://img.shields.io/github/directory-file-count/berrimi/omarchyUserStyles/styles?label=Userstyles&colorA=363a4f&colorB=cba6f7&style=for-the-badge"></a>
-</p>
-
-<p align="center">
 A curated collection of website themes that follow your Omarchy theme.
 </p>
 
 <p align="center">
-<img src="docs/src/assets/preview.webp"/>
+<a href="https://raw.githubusercontent.com/berrimi/omarchyUserStyles/main/dist/import.json"><strong>Download import.json</strong></a> — all userstyles in one Stylus backup file. Import it via the Stylus manage page (<strong>Import backup</strong>).
 </p>
 
 <p align="center">
 Visit <a href="https://berrimi.github.io/omarchyUserStyles">berrimi.github.io/omarchyUserStyles</a> to get started.
 </p>
+
+To rebuild it locally after changing styles:
+
+```
+deno task ci:stylus-import
+```
+
+This writes `dist/import.json`, which is committed to the repo.
 
 ## Dependencies
 
