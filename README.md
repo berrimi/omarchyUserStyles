@@ -7,11 +7,7 @@ A curated collection of website themes that follow your Omarchy theme.
 </p>
 
 <p align="center">
-<a href="https://raw.githubusercontent.com/berrimi/omarchyUserStyles/main/dist/import.json"><strong>Download import.json</strong></a> — all userstyles in one Stylus backup file. Import it via the Stylus manage page (<strong>Import backup</strong>).
-</p>
-
-<p align="center">
-Visit <a href="https://berrimi.github.io/omarchyUserStyles">berrimi.github.io/omarchyUserStyles</a> to get started.
+<a href="https://github.com/berrimi/omarchyUserStyles/releases/download/all-userstyles-export/import.json"><strong>Download import.json</strong></a> — all userstyles in one Stylus backup file. Import it via the Stylus manage page (<strong>Import backup</strong>).
 </p>
 
 To rebuild it locally after changing styles:
