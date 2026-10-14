@@ -47,6 +47,9 @@ when the two tables disagree — realign the working table, don't fork it:
 - `deno task lint --fix` — DANGEROUS, see gotchas. Never run blindly.
 - `deno task test` — repo unit tests.
 - `deno task ci:stylus-import` — rebuilds `dist/import.json` (committed; linked in README).
+  The build INLINES `lib/std/v1.less` into every entry (replacing the
+  `@import` line), so installs never depend on the Pages host at import
+  time. Repo sources keep the `@import`.
 - `deno check` / `deno lint` / `deno fmt` — for `scripts/` changes.
 - CI deploys docs+lib to Pages on `docs/**` + `lib/**` changes; build workflow refreshes the release `import.json`.
 - Pushes don't auto-trigger Actions on this repo (only dispatches run), so
