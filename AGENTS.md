@@ -131,12 +131,12 @@ when the two tables disagree — realign the working table, don't fork it:
 Goal of the tour: the old Catppuccin styles were correct — for each site,
 diff old (`aef780c2:styles/<site>/catppuccin.user.less`) vs new and confirm
 every rule migrated faithfully to the closest omarchy var; restore/fix
-anything missing or wrong. No screenshots, no browser harness — pure
-diff-driven review, verified with `deno task lint`.
+anything missing or wrong. Verified with `deno task lint` (compile gate)
+plus the Playwright harness below (runtime gate) — no screenshots.
 
 Second half of the goal: verify against the LIVE DOM, not just the diff.
 Sites drift (chatgpt `.light`/`.dark` → `html[data-color-scheme]`, claude
-`data-mode="dark|light"` → `data-mode="system"`, ...). For each site, fetch
+`data-mode` → dropped (app uses `system`), ...). For each site, fetch
 the live homepage and confirm the dispatch selectors (and a sample of key
 themed selectors/vars) still exist. If the dispatch is dead, update it to
 the live hooks — a perfectly migrated file that never matches themes nothing.
@@ -144,9 +144,9 @@ External breakage beyond our control (JS-only DOM, auth walls) gets flagged,
 not fixed.
 
 Process: work the site list alphabetically in batches. Per site run
-`python3 /tmp/opencode/omarchy-diff.py <site>` (shows substantive deletions
+`deno task tour:diff -- <site>` (shows substantive deletions
 minus headers/guards/converted-fns, plus suspicious additions) and
-`python3 /tmp/opencode/omarchy-selectors.py <site>` (selectors present in
+`deno task tour:selectors -- <site>` (selectors present in
 old but absent in new). Rule-count drops alone mean nothing (latte+dark
 pairs merged into one rule). Restore dark-branch rules/filters that were
 dropped with the latte guards; latte-only rules stay deleted. Verify each
@@ -164,14 +164,33 @@ fix with `deno task lint <site>`.
   youtube knob conflicts left as-is (black keeps contrast on light chips).
 - Structural tour: all 134 sites diffed (`omarchy-diff.py` + selectors scan);
   remaining deltas are flavor pruning, renames, or conversions above.
+  Upstream remote (`upstream → catppuccin/userstyles`) verified identical
+  to the `aef780c2` baseline — no upstream selector updates to port.
 - Live-DOM tour: dispatch verified per site via homepage fetch
   (`omarchy-live.py`, cached in `/tmp/opencode/live/`). Real drift fixed:
   chatgpt `.light`/`.dark` → `html[data-color-scheme]`, claude
   `data-mode` → dropped (app uses `system`). `:not()` fallbacks and
   JS-set hooks (bsky colorMode, DDG dark-bg, anilist site-theme-*) kept.
   Bot-walled/DNS-dead fetches flagged, not fixed.
-- Audit scripts live in `/tmp/opencode/` (`omarchy-audit.py`,
-  `omarchy-selectors.py`, converters) — rerun after bulk edits.
+- Runtime check: `deno task tour:harness -- [site ...]` loads each live site
+  in headless Chromium (needs network + a Chromium binary; set
+  `CHROMIUM_PATH` if autodetect fails), injects the compiled style plus fake
+  `--omarchy-*` test colors, and passes when rendering observably changes —
+  in both dark and light `colorScheme`. Results append to
+  `/tmp/opencode/tour-results.jsonl` (override with `TOUR_OUT`). It compiles
+  from `dist/import.json`, so rebuild the bundle first. Bot-walled/DNS-dead/
+  login-walled pages report failed/unverifiable, never passing.
+- Audit tooling lives in `scripts/tour/` (`site-diff.py`,
+  `vanished-selectors.py`, `live-dom.py`, `harness.ts`) — rerun after bulk edits.
+- Runtime check: `deno task tour:harness -- [site ...]` loads each live site
+  in headless Chromium (needs network + a Chromium binary; set
+  `CHROMIUM_PATH` if autodetect fails), injects the compiled style plus fake
+  `--omarchy-*` test colors, and passes when rendering observably changes —
+  in both dark and light `colorScheme`. Results append to
+  `/tmp/opencode/tour-results.jsonl` (override with `TOUR_OUT`). It compiles
+  worktree sources (lib inlined in-memory, zero network for code), tries up
+  to 4 listed domains per site, and marks DNS/cert/bot/timeout failures as
+  unverifiable — never passing. Needs `dist/import.json`? No: worktree only.
 - Known eyeball checks: light Omarchy themes (white-on-white icon edge cases),
   code-heavy sites (highlighter imports deleted → native fallback), any style
   still reporting empty in Stylus after clean reimport.

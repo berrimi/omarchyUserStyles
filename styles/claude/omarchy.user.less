@@ -15,7 +15,9 @@
 @import "https://berrimi.github.io/omarchyUserStyles/lib/std/v1.less";
 
 @-moz-document domain("claude.ai") {
-  :root[data-color-version="v2"] {
+  // (0,4,0) specificity: beats the app's own token rules (up to (0,3,0))
+  // so our variables win regardless of source order.
+  :root[data-color-version="v2"][data-theme][data-mode] {
     #omarchy("omarchy");
   }
 

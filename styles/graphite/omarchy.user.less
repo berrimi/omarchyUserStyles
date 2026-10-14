@@ -15,10 +15,9 @@
 @import "https://berrimi.github.io/omarchyUserStyles/lib/std/v1.less";
 
 @-moz-document domain("app.graphite.com") {
-  :root[data-theme="light"] {
-    #omarchy("omarchy");
-  }
-  :root[data-theme="dark"] {
+  :root[data-theme="light"],
+  :root[data-theme="dark"],
+  :root:not([data-theme]) {
     #omarchy("omarchy");
   }
 

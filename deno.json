@@ -37,7 +37,11 @@
     "lint:fix": "deno task lint --fix",
     "serve": "deno run -A ./scripts/serve/main.ts",
     "test": "deno test -A",
-    "test:update": "deno test -A -- --update"
+    "test:update": "deno test -A -- --update",
+    "tour:diff": "python3 ./scripts/tour/site-diff.py",
+    "tour:selectors": "python3 ./scripts/tour/vanished-selectors.py",
+    "tour:live": "python3 ./scripts/tour/live-dom.py",
+    "tour:harness": "deno run -A ./scripts/tour/harness.ts"
   },
   "nodeModulesDir": "auto",
   "fmt": {
