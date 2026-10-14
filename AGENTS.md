@@ -26,6 +26,12 @@ at runtime (provided on pages by Omarchy Theme Sync + Stylus).
 
 (`fb` = `var()` fallback. Full names are `var(--omarchy-…)` below.)
 
+Every palette var carries its mocha hex as final fallback
+(`var(--omarchy-bg, var(--omarchy-background, #313244))`), so pages where
+Theme Sync can't inject (strict CSP like chatgpt.com) still render a coherent
+dark theme instead of dropping declarations. This also fixes data-URI icon
+fills in isolation. Never remove fallbacks.
+
 Reverse reference (Omarchy key → closest Catppuccin name), authoritative
 when the two tables disagree — realign the working table, don't fork it:
 

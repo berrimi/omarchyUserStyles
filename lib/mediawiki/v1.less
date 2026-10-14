@@ -113,7 +113,7 @@
     // Background colors for static elements (for page layout, sections, etc.) from here on.
     --background-color-base: @base;
     // The same as background-color-base in light mode, but does not change in dark mode. Use this for things that should be white in both modes.
-    --background-color-base-fixed: var(--omarchy-color7);
+    --background-color-base-fixed: var(--omarchy-color7, #bac2de);
     --background-color-neutral: @surface0;
     --background-color-neutral-subtle: color-mix(in srgb, @surface0 50%, @base);
     --background-color-interactive: @surface0;
@@ -164,8 +164,8 @@
 
     --background-color-input-binary--checked: @accent;
 
-    --background-color-tab-list-item-framed--hover: color-mix(in srgb, var(--omarchy-color7) 30%, transparent);
-    --background-color-tab-list-item-framed--active: color-mix(in srgb, var(--omarchy-color7) 65%, transparent);
+    --background-color-tab-list-item-framed--hover: color-mix(in srgb, var(--omarchy-color7, #bac2de) 30%, transparent);
+    --background-color-tab-list-item-framed--active: color-mix(in srgb, var(--omarchy-color7, #bac2de) 65%, transparent);
 
     --border-base: 1px solid var(--border-color-base);
     --border-subtle: 1px solid var(--border-color-subtle);
@@ -180,7 +180,7 @@
     --border-color-disabled: @overlay0;
     --border-color-inverted: @base;
     // The same as color-inverted in light mode, but does not change in dark mode. Use this for things that should be white in both modes.
-    --border-color-inverted-fixed: var(--omarchy-color7);
+    --border-color-inverted-fixed: var(--omarchy-color7, #bac2de);
 
     --border-color-progressive: var(--color-progressive);
     --border-color-progressive--hover: var(--color-progressive--hover);

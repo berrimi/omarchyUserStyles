@@ -41,20 +41,20 @@
   }
 
   #initialLoad() {
-    #RGB(splashscreen-startup-background, var(--omarchy-darker-bg)) !important;
-    #RGB(splashscreen-startup-icon, var(--omarchy-bg, var(--omarchy-background))) !important;
+    #RGB(splashscreen-startup-background, var(--omarchy-darker-bg, #11111b)) !important;
+    #RGB(splashscreen-startup-icon, var(--omarchy-bg, var(--omarchy-background, #313244))) !important;
 
-    #RGB(splashscreen-primary-title, var(--omarchy-foreground, var(--omarchy-fg))) !important;
+    #RGB(splashscreen-primary-title, var(--omarchy-foreground, var(--omarchy-fg, #cdd6f4))) !important;
 
-    #RGB(splashscreen-progress-primary, var(--omarchy-accent)) !important;
-    #RGB(splashscreen-progress-background, var(--omarchy-lighter-bg)) !important;
+    #RGB(splashscreen-progress-primary, var(--omarchy-accent, #cba6f7)) !important;
+    #RGB(splashscreen-progress-background, var(--omarchy-lighter-bg, #45475a)) !important;
 
-    #RGB(splashscreen-secondary-lighter, var(--omarchy-muted)) !important;
+    #RGB(splashscreen-secondary-lighter, var(--omarchy-muted, #a6adc8)) !important;
 
-    #RGB(startup-icon, var(--omarchy-lighter-bg)) !important;
-    #RGB(startup-background, var(--omarchy-darker-bg)) !important;
+    #RGB(startup-icon, var(--omarchy-lighter-bg, #45475a)) !important;
+    #RGB(startup-background, var(--omarchy-darker-bg, #11111b)) !important;
 
-    #RGB(progress-background, var(--omarchy-dark-fg)) !important;
+    #RGB(progress-background, var(--omarchy-dark-fg, #6c7086)) !important;
   }
 
   // Inital loading screen (Avoid FOUC)
