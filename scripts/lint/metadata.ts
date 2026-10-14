@@ -85,59 +85,13 @@ export async function verifyMetadata(
     }
   }
 
-  const template = (await Deno.readTextFile(
-    path.join(REPO_ROOT, "template/omarchy.user.less"),
-  ))
-    .split("\n");
-
-  for (const variable of ["accentColor"]) {
-    const declaration = `@var select ${variable}`;
-
-    const expected = template.find((line) => line.includes(declaration))!;
-    const current = lines.findIndex((line) => line.includes(declaration)) +
-      1;
-
-    if (current === 0) {
-      // This variable is undefined so there isn't a line for it, so we just put it at the bottom of the variables section.
-      const line = lines
-        .findLastIndex((line: string) => line.includes("==/UserStyle== */")) +
-        1;
-
-      log.error(
-        sprintf(
-          "Metadata variable `%s` should exist",
-          color.bold(variable),
-        ),
-        {
-          file,
-          startLine: line !== 0 ? line : undefined,
-          content,
-        },
-      );
-    } else if (expected.trim() !== lines[current - 1].trim()) {
-      const message = sprintf(
-        "Options for metadata variable `%s` should be `%s`",
-        color.bold(variable),
-        (/\[[^\]]+\]/.exec(expected) as RegExpExecArray)[0],
-      );
-
-      log.error(message, {
-        file,
-        startLine: current,
-        content,
-      });
-
-      if (fix) {
-        content = content.replace(lines[current - 1], expected);
-      }
-    }
-  }
+  // No required @var selects remain (single omarchy theme, fixed accent).
 
   // Parse the UserCSS variables to LESS global variables, e.g.
   // `@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]`
   // gets parsed as
   // `lightFlavor: "latte"`.
-  const globalVars = Object.entries(metadata.vars)
+  const globalVars = Object.entries(metadata.vars ?? {})
     .reduce((acc, [k, v]) => {
       return { ...acc, [k]: v.default };
     }, {});

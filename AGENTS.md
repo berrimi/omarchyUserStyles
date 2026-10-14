@@ -19,7 +19,7 @@ at runtime (provided on pages by Omarchy Theme Sync + Stylus).
 | green | `green` | base | `background` (fb `bg`) |
 | teal | `cyan` | mantle | `dark-bg` |
 | sky | `bright-cyan` | crust | `darker-bg` |
-| sapphire | `bright-blue` | accent | `accent` (picker, see below) |
+| sapphire | `bright-blue` | accent | `accent` (fixed) |
 | blue | `blue` | fixed-white | `color7` |
 | lavender | `bright-magenta` | selection | `selection-background`/`-foreground` |
 | | | cursor | `cursor` |
@@ -59,9 +59,9 @@ when the two tables disagree — realign the working table, don't fork it:
 
 - `lib/std/v1.less` `#lib.palette()` maps each palette var to its closest
   omarchy var per the table above.
-- Accent picker: single `@var select accentColor` with omarchy names, wired as
-  `@accent: ~"var(--omarchy-@{accentColor})";` (plain `@{}` does NOT expand
-  inside `var()`, `~""` escape does).
+- Accent is fixed: `@accent: var(--omarchy-accent)`. No `@var select`
+  remains anywhere (accent/contrast/move/check/highlight pickers all
+  removed; their uses now point at fixed palette vars).
 - `#omarchy("omarchy")` mixin def + calls (pattern-match literal; postcss-less
   chokes on argless `#m()` defs).
 - Color derivation is pure CSS: `color-mix()` for fade/mix/lighten/darken/
@@ -74,7 +74,7 @@ when the two tables disagree — realign the working table, don't fork it:
   `selection-background`/`selection-foreground` (color-mix/inherit fallbacks),
   inputs use `caret-color: var(--omarchy-cursor, auto)`.
 - Headers must satisfy `scripts/lint/metadata.ts` (name/namespace/URLs/author
-  `berrimi`, description `Omarchy theme for …`, accentColor options = template).
+  `berrimi`, description `Omarchy theme for …`; no `@var select` remains).
 - Lib `@import` host is `https://berrimi.github.io/omarchyUserStyles/lib/`
   (intercepted to local `lib/` by lint; served via `docs/public/lib` symlink).
 
@@ -125,6 +125,15 @@ every rule migrated faithfully to the closest omarchy var; restore/fix
 anything missing or wrong. No screenshots, no browser harness — pure
 diff-driven review, verified with `deno task lint`.
 
+Second half of the goal: verify against the LIVE DOM, not just the diff.
+Sites drift (chatgpt `.light`/`.dark` → `html[data-color-scheme]`, claude
+`data-mode="dark|light"` → `data-mode="system"`, ...). For each site, fetch
+the live homepage and confirm the dispatch selectors (and a sample of key
+themed selectors/vars) still exist. If the dispatch is dead, update it to
+the live hooks — a perfectly migrated file that never matches themes nothing.
+External breakage beyond our control (JS-only DOM, auth walls) gets flagged,
+not fixed.
+
 Process: work the site list alphabetically in batches. Per site run
 `python3 /tmp/opencode/omarchy-diff.py <site>` (shows substantive deletions
 minus headers/guards/converted-fns, plus suspicious additions) and
@@ -146,6 +155,12 @@ fix with `deno task lint <site>`.
   youtube knob conflicts left as-is (black keeps contrast on light chips).
 - Structural tour: all 134 sites diffed (`omarchy-diff.py` + selectors scan);
   remaining deltas are flavor pruning, renames, or conversions above.
+- Live-DOM tour: dispatch verified per site via homepage fetch
+  (`omarchy-live.py`, cached in `/tmp/opencode/live/`). Real drift fixed:
+  chatgpt `.light`/`.dark` → `html[data-color-scheme]`, claude
+  `data-mode` → dropped (app uses `system`). `:not()` fallbacks and
+  JS-set hooks (bsky colorMode, DDG dark-bg, anilist site-theme-*) kept.
+  Bot-walled/DNS-dead fetches flagged, not fixed.
 - Audit scripts live in `/tmp/opencode/` (`omarchy-audit.py`,
   `omarchy-selectors.py`, converters) — rerun after bulk edits.
 - Known eyeball checks: light Omarchy themes (white-on-white icon edge cases),

@@ -10,10 +10,7 @@
 @license MIT
 
 @preprocessor less
-@var select accentColor "Accent" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
 
-@var select lastMoveColor "Last Move" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
-@var select checkColor "Check Indicator" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
 @var checkbox stylePieces "Style Pieces" 1
 @var checkbox styleBoard "Style Board" 1
 ==/UserStyle== */
@@ -35,8 +32,8 @@
     #lib.palette();
     #lib.defaults();
 
-    @lastMove: ~"var(--omarchy-@{lastMoveColor})";
-    @check: ~"var(--omarchy-@{checkColor})";
+    @lastMove: @red;
+    @check: @red;
 
     &,
     body {

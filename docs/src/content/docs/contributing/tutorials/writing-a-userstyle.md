@@ -29,11 +29,10 @@ Start by filling out the "metadata block" at the very top of the template. Repla
 @license MIT
 
 @preprocessor less
-@var select accentColor "Accent" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
 ==/UserStyle== */
 ```
 
-The rest of the metadata block details the preprocessor and the accent option of the userstyle. This won't need to be changed. For more information, see ["Usercss Metadata" - Stylus Wiki](https://github.com/openstyles/stylus/wiki/Writing-UserCSS#usercss-metadata).
+The rest of the metadata block details the preprocessor. This won't need to be changed. For more information, see ["Usercss Metadata" - Stylus Wiki](https://github.com/openstyles/stylus/wiki/Writing-UserCSS#usercss-metadata).
 
 ## `@-moz-document`
 
@@ -112,7 +111,6 @@ Combining all of the previous steps, we have a working userstyle!
 @license MIT
 
 @preprocessor less
-@var select accentColor "Accent" ["red:Red", "orange:Orange", "yellow:Yellow", "green:Green", "cyan:Cyan", "blue:Blue", "purple:Purple*", "magenta:Magenta", "brown:Brown", "bright-red:Bright Red", "bright-yellow:Bright Yellow", "bright-green:Bright Green", "bright-cyan:Bright Cyan", "bright-blue:Bright Blue", "bright-magenta:Bright Magenta"]
 ==/UserStyle== */
 
 @-moz-document domain("example.org") {

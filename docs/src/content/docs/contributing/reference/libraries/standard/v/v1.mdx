@@ -21,10 +21,10 @@ The standard library exposes a `#lib` namespace.
 
 The standard library palette mixin provides Less variable definitions that resolve to the user's Omarchy theme variables (`var(--omarchy-*)`) at runtime, plus static CSS filter strings for recoloring icons. There is a single `omarchy` flavor. Call the mixin at the top of the `#omarchy` mixin to inject the variables into the userstyle context. This is used in all userstyles.
 
-The accent variable follows the user's `accentColor` option:
+The accent variable is the fixed Omarchy accent:
 
 ```less
-@accent; // -> var(--omarchy-purple) (or whichever accent is selected)
+@accent; // -> var(--omarchy-accent)
 ```
 
 Because the palette resolves at runtime, Less color functions (`fade()`, `lighten()`, `mix()`, …) cannot be used on palette variables. Use [`color-mix()`](https://developer.mozilla.org/en-US/docs/Web/CSS/color-mix) and [relative colors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Using_relative_colors) instead:
