@@ -34,17 +34,26 @@
     "npm:@types/node@*": "22.5.4",
     "npm:ajv@8.17.1": "8.17.1",
     "npm:ajv@8.18.0": "8.18.0",
+    "npm:ajv@^8.18.0": "8.18.0",
     "npm:handlebars@4.7.8": "4.7.8",
+    "npm:handlebars@^4.7.8": "4.7.8",
     "npm:json-schema-to-typescript@^15.0.3": "15.0.3",
     "npm:less@4.2.2": "4.2.2",
+    "npm:less@^4.2.2": "4.2.2",
+    "npm:postcss-less@6": "6.0.0_postcss@8.4.49",
     "npm:postcss-less@6.0.0": "6.0.0_postcss@8.4.49",
     "npm:postcss-value-parser@4.2.0": "4.2.0",
-    "npm:stylelint-config-recommended@14.0.1": "14.0.1_stylelint@16.12.0__@csstools+css-tokenizer@3.0.3__@csstools+css-parser-algorithms@3.0.4___@csstools+css-tokenizer@3.0.3__postcss-selector-parser@7.0.0__postcss@8.4.49",
-    "npm:stylelint-config-standard@36.0.1": "36.0.1_stylelint@16.12.0__@csstools+css-tokenizer@3.0.3__@csstools+css-parser-algorithms@3.0.4___@csstools+css-tokenizer@3.0.3__postcss-selector-parser@7.0.0__postcss@8.4.49",
-    "npm:stylelint@*": "16.12.0_@csstools+css-tokenizer@3.0.3_@csstools+css-parser-algorithms@3.0.4__@csstools+css-tokenizer@3.0.3_postcss-selector-parser@7.0.0_postcss@8.4.49",
-    "npm:stylelint@^16.12.0": "16.12.0_@csstools+css-tokenizer@3.0.3_@csstools+css-parser-algorithms@3.0.4__@csstools+css-tokenizer@3.0.3_postcss-selector-parser@7.0.0_postcss@8.4.49",
+    "npm:postcss-value-parser@^4.2.0": "4.2.0",
+    "npm:stylelint-config-recommended@14.0.1": "14.0.1_stylelint@16.12.0",
+    "npm:stylelint-config-recommended@^14.0.1": "14.0.1_stylelint@16.12.0",
+    "npm:stylelint-config-standard@36.0.1": "36.0.1_stylelint@16.12.0",
+    "npm:stylelint-config-standard@^36.0.1": "36.0.1_stylelint@16.12.0",
+    "npm:stylelint@*": "16.12.0_@csstools+css-tokenizer@3.0.3_@csstools+css-parser-algorithms@3.0.4_postcss-selector-parser@7.0.0_postcss@8.4.49",
+    "npm:stylelint@^16.12.0": "16.12.0_@csstools+css-tokenizer@3.0.3_@csstools+css-parser-algorithms@3.0.4_postcss-selector-parser@7.0.0_postcss@8.4.49",
+    "npm:svgo@4": "4.0.0",
     "npm:svgo@4.0.0": "4.0.0",
     "npm:type-fest@^4.30.2": "4.30.2",
+    "npm:usercss-meta@0.12": "0.12.0",
     "npm:usercss-meta@0.12.0": "0.12.0"
   },
   "jsr": {
@@ -209,7 +218,7 @@
     "@csstools/css-tokenizer@3.0.3": {
       "integrity": "sha512-UJnjoFsmxfKUdNYdWgOB0mWUypuLvAfQPH1+pyvRJs6euowbFkFC6P13w1l8mJyi3vxYMxc9kld5jZEGRQs6bw=="
     },
-    "@csstools/media-query-list-parser@4.0.2_@csstools+css-parser-algorithms@3.0.4__@csstools+css-tokenizer@3.0.3_@csstools+css-tokenizer@3.0.3": {
+    "@csstools/media-query-list-parser@4.0.2_@csstools+css-parser-algorithms@3.0.4_@csstools+css-tokenizer@3.0.3": {
       "integrity": "sha512-EUos465uvVvMJehckATTlNqGj4UJWkTmdWuDMjqvSUkjGpmOyFZBVwb4knxCm/k2GMTXY+c/5RkdndzFYWeX5A==",
       "dependencies": [
         "@csstools/css-parser-algorithms",
@@ -971,20 +980,20 @@
         "ansi-regex"
       ]
     },
-    "stylelint-config-recommended@14.0.1_stylelint@16.12.0__@csstools+css-tokenizer@3.0.3__@csstools+css-parser-algorithms@3.0.4___@csstools+css-tokenizer@3.0.3__postcss-selector-parser@7.0.0__postcss@8.4.49": {
+    "stylelint-config-recommended@14.0.1_stylelint@16.12.0": {
       "integrity": "sha512-bLvc1WOz/14aPImu/cufKAZYfXs/A/owZfSMZ4N+16WGXLoX5lOir53M6odBxvhgmgdxCVnNySJmZKx73T93cg==",
       "dependencies": [
         "stylelint"
       ]
     },
-    "stylelint-config-standard@36.0.1_stylelint@16.12.0__@csstools+css-tokenizer@3.0.3__@csstools+css-parser-algorithms@3.0.4___@csstools+css-tokenizer@3.0.3__postcss-selector-parser@7.0.0__postcss@8.4.49": {
+    "stylelint-config-standard@36.0.1_stylelint@16.12.0": {
       "integrity": "sha512-8aX8mTzJ6cuO8mmD5yon61CWuIM4UD8Q5aBcWKGSf6kg+EC3uhB+iOywpTK4ca6ZL7B49en8yanOFtUW0qNzyw==",
       "dependencies": [
         "stylelint",
         "stylelint-config-recommended"
       ]
     },
-    "stylelint@16.12.0_@csstools+css-tokenizer@3.0.3_@csstools+css-parser-algorithms@3.0.4__@csstools+css-tokenizer@3.0.3_postcss-selector-parser@7.0.0_postcss@8.4.49": {
+    "stylelint@16.12.0_@csstools+css-tokenizer@3.0.3_@csstools+css-parser-algorithms@3.0.4_postcss-selector-parser@7.0.0_postcss@8.4.49": {
       "integrity": "sha512-F8zZ3L/rBpuoBZRvI4JVT20ZanPLXfQLzMOZg1tzPflRVh9mKpOZ8qcSIhh1my3FjAjZWG4T2POwGnmn6a6hbg==",
       "dependencies": [
         "@csstools/css-parser-algorithms",
@@ -1060,7 +1069,7 @@
     "table@6.9.0": {
       "integrity": "sha512-9kY+CygyYM6j02t5YFHbNz2FN5QmYGv9zAjVp4lCDjlCw7amdckXlEt/bjMhUIfj4ThGRE4gCUH5+yGnNuPo5A==",
       "dependencies": [
-        "ajv@8.17.1",
+        "ajv@8.18.0",
         "lodash.truncate",
         "slice-ansi",
         "string-width",
@@ -1162,6 +1171,22 @@
       "npm:svgo@4.0.0",
       "npm:type-fest@^4.30.2",
       "npm:usercss-meta@0.12.0"
-    ]
+    ],
+    "packageJson": {
+      "dependencies": [
+        "npm:ajv@^8.18.0",
+        "npm:handlebars@^4.7.8",
+        "npm:json-schema-to-typescript@^15.0.3",
+        "npm:less@^4.2.2",
+        "npm:postcss-less@6",
+        "npm:postcss-value-parser@^4.2.0",
+        "npm:stylelint-config-recommended@^14.0.1",
+        "npm:stylelint-config-standard@^36.0.1",
+        "npm:stylelint@^16.12.0",
+        "npm:svgo@4",
+        "npm:type-fest@^4.30.2",
+        "npm:usercss-meta@0.12"
+      ]
+    }
   }
 }

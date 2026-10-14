@@ -114,6 +114,10 @@ when the two tables disagree — realign the working table, don't fork it:
   cannot derive from runtime vars — vikunja/regex101 breakdowns were deleted.
 - Pushes don't auto-trigger Actions on this repo (only dispatches run);
   releases/Pages deploys were done manually. Empty probe commit in history.
+- Stylus-side staleness: after any rebrand/dispatch change, users must DELETE
+  all Omarchy styles in the manager before reimporting — importing over old
+  copies leaves cached empty/error compiles behind (alternating
+  `variable undefined` / `Style is empty` across the list is the tell).
 - Functional upstream deps intentionally kept: `@catppuccin/palette`,
   categories.yml, starlight docs theme, Teams `org:` strings, giscus URL.
 
