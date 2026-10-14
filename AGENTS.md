@@ -49,6 +49,11 @@ when the two tables disagree — realign the working table, don't fork it:
 - `deno task ci:stylus-import` — rebuilds `dist/import.json` (committed; linked in README).
 - `deno check` / `deno lint` / `deno fmt` — for `scripts/` changes.
 - CI deploys docs+lib to Pages on `docs/**` + `lib/**` changes; build workflow refreshes the release `import.json`.
+- Pushes don't auto-trigger Actions on this repo (only dispatches run), so
+  `dist/import.json` is refreshed by a local post-commit hook
+  (`.git/hooks/post-commit`, unversioned): after any commit touching
+  `styles/`/`lib/`/`template/`, it rebuilds the bundle and amends it in.
+  Keep it working; re-dispatch `build.yml` manually if the release lags.
 
 ## Architecture
 
