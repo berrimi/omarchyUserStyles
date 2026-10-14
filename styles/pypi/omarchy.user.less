@@ -822,7 +822,12 @@
         '<svg xmlns="http://www.w3.org/2000/svg" width="2" height="1"><rect width="2" height="1" fill="@{surface0}"/></svg>'
       );
 
-      background-image: url("data:image/svg+xml;utf8,@{svg}") !important;
+      background-image: none !important;
+      background-color: @surface0 !important;
+      mask-image: url("data:image/svg+xml,@{svg}") !important;
+      mask-size: auto !important;
+      mask-position: 0 0 !important;
+      mask-repeat: repeat !important;
     }
 
     .release__node[src*="white"] {

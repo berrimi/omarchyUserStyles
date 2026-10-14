@@ -158,7 +158,12 @@
       @svg: escape(
         '<svg xmlns="http://www.w3.org/2000/svg" height="10px" width="15px"><text x="0" y="10" fill="@{subtext1}">▾</text></svg>'
       );
-      background-image: url("data:image/svg+xml,@{svg}") !important;
+      background-image: none !important;
+      background-color: @subtext1 !important;
+      mask-image: url("data:image/svg+xml,@{svg}") !important;
+      mask-size: auto !important;
+      mask-position: 0 0 !important;
+      mask-repeat: repeat !important;
     }
 
     .e-checkbox.material-design input:checked + div {

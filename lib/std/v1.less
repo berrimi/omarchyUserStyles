@@ -19,7 +19,7 @@
     @subtext0: var(--omarchy-muted);
     @overlay2: var(--omarchy-muted);
     @overlay1: var(--omarchy-muted);
-    @overlay0: var(--omarchy-dark-fg);
+    @overlay0: var(--omarchy-muted);
     @surface2: var(--omarchy-lighter-bg);
     @surface1: var(--omarchy-lighter-bg);
     @surface0: var(--omarchy-bg, var(--omarchy-background));
@@ -61,11 +61,17 @@
     color-scheme: dark;
 
     ::selection {
-      background-color: color-mix(in srgb, @accent 30%, transparent);
+      background-color: var(
+        --omarchy-selection-background,
+        color-mix(in srgb, @accent 30%, transparent)
+      );
+      color: var(--omarchy-selection-foreground, inherit);
     }
 
     input,
     textarea {
+      caret-color: var(--omarchy-cursor, auto);
+
       &::placeholder {
         color: @subtext0 !important;
       }
@@ -92,7 +98,7 @@
     --omarchy-subtext0: var(--omarchy-muted);
     --omarchy-overlay2: var(--omarchy-muted);
     --omarchy-overlay1: var(--omarchy-muted);
-    --omarchy-overlay0: var(--omarchy-dark-fg);
+    --omarchy-overlay0: var(--omarchy-muted);
     --omarchy-surface2: var(--omarchy-lighter-bg);
     --omarchy-surface1: var(--omarchy-lighter-bg);
     --omarchy-surface0: var(--omarchy-bg, var(--omarchy-background));

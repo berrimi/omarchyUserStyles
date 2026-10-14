@@ -488,7 +488,12 @@ regexp(
       @svg: escape(
         '<svg width="16" height="16" viewBox="0 0 16 16" fill="@{subtext0}" xmlns="http://www.w3.org/2000/svg"><path d="m4.427 9.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 9H4.604a.25.25 0 0 0-.177.427M4.423 6.47 7.82 3.072a.25.25 0 0 1 .354 0L11.57 6.47a.25.25 0 0 1-.177.427H4.6a.25.25 0 0 1-.177-.427"/></svg>'
       );
-      background-image: url("data:image/svg+xml,@{svg}");
+      background-image: none;
+      background-color: @subtext0;
+      mask-image: url("data:image/svg+xml,@{svg}");
+      mask-size: auto;
+      mask-position: 0 0;
+      mask-repeat: repeat;
     }
 
     img[src="https://github.githubassets.com/assets/mona-loading-default-c3c7aad1282f.gif"] {

@@ -1344,7 +1344,12 @@
       @svg: escape(
         '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 512 512" width="512" height="512" enable-background="new 0 0 512 512" xml:space="preserve"><polygon points="509.5,73.2 435.2,4 254.8,184.2 74.3,4 2.5,75.8 182.9,256 2.5,436.2 76.9,505.5 254.8,327.7 435.2,508 507,436.2 326.6,256" fill="@{text}"/></svg>'
       );
-      background-image: url("data:image/svg+xml,@{svg}") !important;
+      background-image: none !important;
+      background-color: @text !important;
+      mask-image: url("data:image/svg+xml,@{svg}") !important;
+      mask-size: auto !important;
+      mask-position: 0 0 !important;
+      mask-repeat: repeat !important;
     }
     /* publish icons */
     .publish-icon.publish-icon-published,
@@ -1379,7 +1384,12 @@
       @svg: escape(
         '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="13px" viewBox="0 0 22 13" version="1.1"><title>iconAllyDownload-IC</title><desc>Created with Sketch.</desc><path d="m22.14 4.354-4.812 7.312-4.813-7.312h2.888V-.034h3.85v4.388zm-22 8.612 7.562-10.4 7.563 10.4h-3.618c-.67-1.362-2.164-2.311-3.9-2.311-1.737 0-3.231.949-3.901 2.311zM5.9 8.18c0 .911.807 1.65 1.802 1.65.994 0 1.8-.739 1.8-1.65 0-.912-.806-1.651-1.8-1.651-.995 0-1.801.74-1.801 1.65" fill="@{text}" stroke="none" stroke-width="1" fill-rule="evenodd"/></svg>'
       );
-      background-image: url("data:image/svg+xml,@{svg}");
+      background-image: none;
+      background-color: @text;
+      mask-image: url("data:image/svg+xml,@{svg}");
+      mask-size: auto;
+      mask-position: 0 0;
+      mask-repeat: repeat;
     }
 
     img[src="/images/svg-icons/svg_icon_download.svg"] {
@@ -1561,14 +1571,24 @@
       @svg: escape(
         '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" fill="@{text}"><polygon xmlns="http://www.w3.org/2000/svg" points="52,256 460,512 460,0"/></svg>'
       );
-      background-image: url("data:image/svg+xml,@{svg}");
+      background-image: none;
+      background-color: @text;
+      mask-image: url("data:image/svg+xml,@{svg}");
+      mask-size: auto;
+      mask-position: 0 0;
+      mask-repeat: repeat;
     }
 
     .ui-datepicker .ui-datepicker-header .ui-datepicker-next {
       @svg: escape(
         '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" fill="@{text}"><polygon points="460,256 52,0 52,512"/></svg>'
       );
-      background-image: url("data:image/svg+xml,@{svg}");
+      background-image: none;
+      background-color: @text;
+      mask-image: url("data:image/svg+xml,@{svg}");
+      mask-size: auto;
+      mask-position: 0 0;
+      mask-repeat: repeat;
     }
 
     /* INBOX */
@@ -2462,7 +2482,12 @@
       @svg: escape(
         '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="36" viewBox="0 0 28 36"><title>folder</title><path d="M14.43 10.81 11.23 6H.43v21.58A2.4 2.4 0 0 0 2.82 30h22.36a2.4 2.4 0 0 0 2.4-2.4V10.81ZM26 27.58a.8.8 0 0 1-.8.8H2.82a.8.8 0 0 1-.8-.8v-20h8.35l2.13 3.19H3.62v1.6H26Z" fill="@{text}" fill-rule="evenodd"/></svg>'
       );
-      background-image: url("data:image/svg+xml,@{svg}");
+      background-image: none;
+      background-color: @text;
+      mask-image: url("data:image/svg+xml,@{svg}");
+      mask-size: auto;
+      mask-position: 0 0;
+      mask-repeat: repeat;
     }
     .ef-big-icon {
       filter: @text-filter;

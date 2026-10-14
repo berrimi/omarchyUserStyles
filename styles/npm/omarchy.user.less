@@ -709,7 +709,12 @@
       @svg: escape(
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.48 16.27"><path fill="@{overlay2}" d="M5.16 16.27v-2.4c-.31 0-.6.08-.89.1a2.61 2.61 0 0 1-2.77-1.66 2.65 2.65 0 0 0-1.14-1.42 1.2 1.2 0 0 1-.3-.26c-.06-.13-.06-.24.09-.28a1.5 1.5 0 0 1 .42 0 2 2 0 0 1 1.51 1 2.21 2.21 0 0 0 3 .93c.06 0 .15-.09.16-.14a2.5 2.5 0 0 1 .63-1.32c-.51-.11-1-.19-1.48-.32a4.13 4.13 0 0 1-2.83-2.15A6 6 0 0 1 1 6.08a4.27 4.27 0 0 1 1-3.16.37.37 0 0 0 0-.25A3.83 3.83 0 0 1 2 .52c.15-.55.2-.58.76-.47A6.7 6.7 0 0 1 4.92 1a.45.45 0 0 0 .34.07 9.7 9.7 0 0 1 5 0 .52.52 0 0 0 .33-.07c.49-.24 1-.54 1.46-.74A4.4 4.4 0 0 1 13.13 0a.27.27 0 0 1 .2.13 3.87 3.87 0 0 1 .15 2.4.44.44 0 0 0 .11.46 3.8 3.8 0 0 1 .75 1.5 6 6 0 0 1 0 2.38 4 4 0 0 1-2.19 3.2 6.7 6.7 0 0 1-1.23.46c-.41.11-.85.17-1.29.26a2.74 2.74 0 0 1 .67 2v3.41Z"/></svg>'
       );
-      background-image: url("data:image/svg+xml,@{svg}");
+      background-image: none;
+      background-color: @overlay2;
+      mask-image: url("data:image/svg+xml,@{svg}");
+      mask-size: auto;
+      mask-position: 0 0;
+      mask-repeat: repeat;
     }
     ._69ab2ca0 {
       border-color: @surface0;
@@ -959,13 +964,21 @@
       /* Danger */
       &._4a3f8f21 {
           background-color: @red;
-          color: @surface1
+          color: @surface1;
+
+          &:hover {
+            background-color: color-mix(in srgb, @red, white 5%);
+          }
       }
 
       /* Success */
       &.c37751f6 {
           background-color: @green;
-          color: @surface1
+          color: @surface1;
+
+          &:hover {
+            background-color: color-mix(in srgb, @green, white 5%);
+          }
       }
     }
 

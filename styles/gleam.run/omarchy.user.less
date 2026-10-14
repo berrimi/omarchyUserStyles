@@ -96,7 +96,15 @@
       @svg: escape(
         '<svg preserveAspectRatio="none" width="1920" height="122" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M463.5 21.13C180-26.413 0 21.13 0 21.13v100h1920V71.087c-190-49.957-273.5-71-498-49.957-224.5 21.044-281.21 44.66-540 49.957-172.829 3.537-307.645-31.366-418.5-49.957" fill="@{base}"/><path d="M1458 33.087c283.5-47.543 462 0 462 0v88.044H0V71.087C190 21.13 310 53.674 498 21.13s342-12.543 540 49.957c172.37 3.528 308.43-19.289 419.12-37.853z" fill="@{base}" fill-opacity=".28"/></svg>'
       );
-      content: url("data:image/svg+xml,@{svg}");
+      content: "";
+      display: inline-block;
+      width: 1920px;
+      height: 122px;
+      background-color: @base;
+      mask-image: url("data:image/svg+xml,@{svg}");
+      mask-size: contain;
+      mask-position: center;
+      mask-repeat: no-repeat;
     }
 
     p > code, li > code {

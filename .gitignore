@@ -2,8 +2,12 @@ deno_cache/
 __pycache__/
 node_modules/
 .direnv/
+docs/dist/
+docs/.astro/
 
 .idea/
 .vscode/
 
 .DS_Store
+.env
+*.local

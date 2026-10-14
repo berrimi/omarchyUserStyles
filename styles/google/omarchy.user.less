@@ -626,7 +626,12 @@
       @svg: escape(
         '<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="40" height="124" viewBox="0 0 10.583 32.808"><g opacity="1"><path d="m1.413 30.263-.631-.63 3.336-3.36 1.803 1.804 2.344-2.322H7.093v-.901h2.705v2.704h-.902v-1.172l-2.975 2.976-1.803-1.804Z" fill="@{subtext1}" fill-opacity=".992157" stroke-width=".391936"/><g fill="#e8eaed" stroke-width=".742615"><path fill="none" d="M1.016 12.129h8.551v8.551H1.016Z" fill-opacity="1" stroke-width=".742615"/><path d="M5.288 12.842a3.562 3.562 0 1 0 3.566 3.562 3.564 3.564 0 0 0-3.566-3.562m.003 6.413a2.85 2.85 0 1 1 0-5.7 2.85 2.85 0 1 1 0 5.7m.179-4.632h-.535v2.138l1.87 1.122.268-.438-1.603-.951z" display="inline" fill="@{subtext1}" fill-opacity=".992157" stroke-width=".742615"/></g><g fill="none" stroke-width=".6"><path d="M0 0h10.583v10.583H0Z" fill="none" stroke-width=".6"/><path d="M6.835 6.174h-.348l-.124-.12a2.85 2.85 0 0 0 .693-1.865 2.866 2.866 0 1 0-2.867 2.867c.71 0 1.363-.26 1.866-.693l.119.124v.348l2.204 2.2.657-.657zm-2.646 0c-1.098 0-1.984-.887-1.984-1.985s.886-1.984 1.984-1.984 1.985.886 1.985 1.984-.887 1.985-1.985 1.985" fill="@{subtext1}" fill-opacity=".996078" stroke-width=".6"/></g></g></svg>'
       );
-      background-image: url("data:image/svg+xml,@{svg}");
+      background-image: none;
+      background-color: @subtext1;
+      mask-image: url("data:image/svg+xml,@{svg}");
+      mask-size: auto;
+      mask-position: 0 0;
+      mask-repeat: repeat;
     }
 
     /* text */
@@ -838,7 +843,12 @@
       @svg: escape(
         '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="@{text}" d="m20.49 19-5.73-5.73C15.53 12.2 16 10.91 16 9.5A6.5 6.5 0 1 0 9.5 16c1.41 0 2.7-.47 3.77-1.24L19 20.49zM5 9.5C5 7.01 7.01 5 9.5 5S14 7.01 14 9.5 11.99 14 9.5 14 5 11.99 5 9.5"/></svg>'
       );
-      background-image: url("data:image/svg+xml,@{svg}");
+      background-image: none;
+      background-color: @text;
+      mask-image: url("data:image/svg+xml,@{svg}");
+      mask-size: auto;
+      mask-position: 0 0;
+      mask-repeat: repeat;
     }
     .zgAlFc {
       color: @blue;
@@ -2074,7 +2084,12 @@
       @svg: escape(
         '<svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="@{text}" d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>'
       );
-      background-image: url("data:image/svg+xml,@{svg}");
+      background-image: none;
+      background-color: @text;
+      mask-image: url("data:image/svg+xml,@{svg}");
+      mask-size: auto;
+      mask-position: 0 0;
+      mask-repeat: repeat;
     }
     // tabs
     [selected].YmvwI {

@@ -137,7 +137,12 @@
       @svg: escape(
         '<svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 0 32 16" width="32"><path d="M2 27 16-2l14 29z" fill="@{subtext0}"/></svg>'
       );
-      background-image: url("data:image/svg+xml,@{svg}");
+      background-image: none;
+      background-color: @subtext0;
+      mask-image: url("data:image/svg+xml,@{svg}");
+      mask-size: auto;
+      mask-position: 0 0;
+      mask-repeat: repeat;
     }
 
     .yclinks {

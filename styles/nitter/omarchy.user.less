@@ -102,7 +102,15 @@
       @svg: escape(
         '<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" fill="none"><path stroke="@{accent}" stroke-linejoin="round" stroke-width="20" d="M145 41H81v418h78V183.5L355 459h64V41h-78v275.5z"/></svg>'
       );
-      content: url("data:image/svg+xml,@{svg}");
+      content: "";
+      display: inline-block;
+      width: 500px;
+      height: 500px;
+      background-color: @accent;
+      mask-image: url("data:image/svg+xml,@{svg}");
+      mask-size: contain;
+      mask-position: center;
+      mask-repeat: no-repeat;
     }
 
     /* Fix Poll Leader color */

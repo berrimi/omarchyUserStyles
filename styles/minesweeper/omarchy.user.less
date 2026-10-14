@@ -415,7 +415,15 @@
       @svg: escape(
         '<svg height="512" viewBox="0 0 48 48" width="512" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" fill="@{yellow}" r="22"/><path d="M38.52 7.48A21.994 21.994 0 0 1 7.48 38.52 21.995 21.995 0 1 0 38.52 7.48" fill="@{yellow}"/></svg>'
       );
-      content: url("data:image/svg+xml,@{svg}");
+      content: "";
+      display: inline-block;
+      width: 512px;
+      height: 512px;
+      background-color: @yellow;
+      mask-image: url("data:image/svg+xml,@{svg}");
+      mask-size: contain;
+      mask-position: center;
+      mask-repeat: no-repeat;
     }
 
     .diff-icon {

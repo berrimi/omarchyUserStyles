@@ -114,6 +114,11 @@
 
     /* because the icons on the display mode buttons are white, we cant have white base here, so we improvise for latte */
 
+    #display_modes a {
+      background: @base !important;
+      box-shadow: none !important;
+    }
+
     #display_modes a.selected,
     #display_modes a:hover {
       background: @accent;
